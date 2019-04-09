@@ -1,0 +1,31 @@
+.sgnin {
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    
+}
+
+.fhead {
+    background-image: url(./Images/onlyepiclogo.jpg);
+    background-size: 300px 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    height: 130px;
+}
+
+.signin {
+    border-radius: 25px;
+}
+
+h1{
+    font-family: serif, sans-serif, monospace;
+    text-shadow: 2px 1px 4px rgb(128, 141, 163);
+	font-size: 18px;
+}
+
+.emp{
+    margin: auto;
+    width: 80%;
+    
+}

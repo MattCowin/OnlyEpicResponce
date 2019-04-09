@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="onlyepic.css"/>
+    <script src="../Scripts/OnlyEpic.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <title>Only Epic Holdings</title>
+    <meta name="author" content="Matt Cowin" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+        <div class="navbar-header" style="margin: 0px; padding: 0px;">
+            <a class="navbar-brand" href="https://www.onlyepic.com/">
+            <img src="./Images/onlyepiclogo.jpg" style="width: 90px; height: 55px;
+             margin-top: -20px; margin-left: -20px; margin-right: -20px;"/></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact HR</a></li>
+        </ul>
+  </div>
+</nav>
+<form class="sgnin" method="get" action="./LoginServlet.do" >
+        <div class="fhead">
+        </div>
+        <h1>Log In</h1>
+        <input type="text" name="username" placeholder="User Name" id="uname"/><br/>
+        <input type="password" name="password1" placeholder="Password" id="password"/><br/><br/>
+        <button class="btn-danger" id="signin">Sign In</button>
+</form>
+    
+</body>
+
+</html>
