@@ -16,18 +16,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
-/**
- * Servlet Filter implementation class AuthenticationFilter
- */
-
-/*
- * A filter is just a servlet, but a servlet that has a special job. A filter's
- * job is to intercept requests before they reach their destination and do some
- * sort of authentication.
- *
- * Hence the name "filter".
- */
-
 public class AuthenticationFilter implements Filter {
 	
 	private static Logger log = Logger.getLogger(AuthenticationFilter.class);
@@ -56,8 +44,7 @@ public class AuthenticationFilter implements Filter {
 		//of tracking what is happening in our application.
 		
 		log.info("My authentication filter is working.");
-		// place your code here
-
+	
 		// We must cast the ServletRequest and ServletResponse objects into
 		// HttpServletRequest
 		// and HttpServletResponse objects
@@ -68,27 +55,26 @@ public class AuthenticationFilter implements Filter {
 		// Let's get a user's session
 		HttpSession session = req.getSession(false);
 
-		//if (session != null) {
-			if (session.getAttribute("username").equals("Matt") && session.getAttribute("Password").equals("1234")) {
+		if (session != null) {
+			if (session.getAttribute("username").equals("Matt")) {
 				// send the user to the appropriate web page
-				RequestDispatcher dispat = request.getRequestDispatcher("/Users/userhome.html");
+				RequestDispatcher dispat = request.getRequestDispatcher("./Users/userhome.html");
 				dispat.forward(request, response);
 				
 				//You can send error codes back to the client side using your response
 				//object using the sendError() method
 //				resp.sendError(404);
 			}
-		//}
-			else {
+		}
+		 else {
 			// send them back to the home page
 
 			// but for fun...
 
-			response.setContentType("text/plain");
-			PrintWriter somethingThatsNotWrite = response.getWriter();
-			somethingThatsNotWrite.write("Get out of here, man! And get off my lawn!");
+			RequestDispatcher dispat = request.getRequestDispatcher("./404.html");
+			dispat.forward(request, response);
 		}
-
+		
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}
@@ -101,4 +87,3 @@ public class AuthenticationFilter implements Filter {
 	}
 
 }
-

@@ -30,17 +30,17 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	//getting the form parameters from the client
 		String username = request.getParameter("username");
-		String password1 = request.getParameter("password1");
+		String password = request.getParameter("password");
 //		String password2 = request.getParameter("password2");
 		
 //		if(username != null && username.contentEquals("") && password1 != null && password1.contentEquals("")) {
 			
 		
-		response.sendRedirect("./Users/userhome.html");
+//		response.sendRedirect("./Users/userhome.html");
 		
 		//we need to do some error ckecking: check to see if it is null or empty strings
 //		}
-		 if(username == null || username.contentEquals("") || password1 == null || password1.contentEquals("")) { 
+		 if(username == null || username.contentEquals("") || password == null || password.contentEquals("")) { 
 			//|| password2 == null || password2.contentEquals("")
 			response.sendRedirect("./index.html");
 		}
@@ -74,7 +74,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

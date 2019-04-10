@@ -37,7 +37,7 @@ public class JSession extends HttpServlet {
 		HttpSession mySession = request.getSession();		
 		mySession.setAttribute("username", "Matt");
 		mySession.setAttribute("userId", "1");
-		mySession.setAttribute("password1", "1234");
+		mySession.setAttribute("password", "1234");
 	}
 
 	/**
