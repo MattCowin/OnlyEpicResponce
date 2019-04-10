@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	//getting the form parameters from the client
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-//		String password2 = request.getParameter("password2");
+
 		
 //		if(username != null && username.contentEquals("") && password1 != null && password1.contentEquals("")) {
 			
@@ -46,28 +46,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		log.info("The contex param is " + request.getServletContext().getInitParameter("someName"));
 		
-//		String paramValue = request.getServletContext().getInitParameter("someValue");
-		
-//		if(!password1.contentEquals(password2)) {
-//			response.setContentType("text/html");
-//			PrintWriter writeMe = response.getWriter();
-//			writeMe.write("<table><th><tr><td>You</td></tr></th></table>");
-//		}
-		
-		//sendRedirect vs Forward
-//		sendRedirect and forward are both methods that you can use to direct the flow of traffic on your website. There is, however, a 
-//		few differences between these methods. 
-//		1. sendRedirect comes from the response object whereas forward comes from the request object (via the RequestDispatcher)
-//		2. sendRedirect sends a response back to the client and creates a new request that is then sent back to the server
-//		while forward simply forwards the request to the requested resource without leaving the server
-//		3. sendRedirect shows the client the name of the requested resource (via the url) whereas forward masks the name of resource
-		
-		//this is a request dispacher. you get it from the request object
-//		RequestDispatcher dispatchy = request.getRequestDispatcher("/Users/userhome.html");
-//		dispatchy.forward(request, response);
-		
-		//send redirect 
-		//response.sendRedirect("./Users/userhome.html");
+
 	}
 
 	/**
@@ -79,4 +58,6 @@ public class LoginServlet extends HttpServlet {
 	}
 
 }
+
+
 
