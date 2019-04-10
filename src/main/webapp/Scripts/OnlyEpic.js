@@ -46,6 +46,3 @@ function backTo(){
 	location.replace("../index.html");
 }
 
-//window.onload = function(){
-//	getPolkamanMasters();
-//}

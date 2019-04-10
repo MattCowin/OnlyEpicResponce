@@ -58,7 +58,7 @@ public class AuthenticationFilter implements Filter {
 		if (session != null) {
 			if (session.getAttribute("username").equals("Matt")) {
 				// send the user to the appropriate web page
-				RequestDispatcher dispat = request.getRequestDispatcher("./Users/userhome.html");
+				RequestDispatcher dispat = request.getRequestDispatcher("/Users/userhome.html");
 				dispat.forward(request, response);
 				
 				//You can send error codes back to the client side using your response
@@ -71,7 +71,7 @@ public class AuthenticationFilter implements Filter {
 
 			// but for fun...
 
-			RequestDispatcher dispat = request.getRequestDispatcher("./404.html");
+			RequestDispatcher dispat = request.getRequestDispatcher("./index.html");
 			dispat.forward(request, response);
 		}
 		
