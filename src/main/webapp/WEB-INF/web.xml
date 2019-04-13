@@ -104,7 +104,7 @@
   </servlet-mapping>
   <error-page>
     <error-code>404</error-code>
-    <location>/404.html</location>
+    <location>/somethingwentwrong.html</location>
   </error-page>
   <context-param>
     <param-name>someName</param-name>

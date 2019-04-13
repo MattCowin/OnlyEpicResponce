@@ -43,6 +43,6 @@ function get(url){
 //}
 
 function backTo(){
-	location.replace("../index.html");
+	document.location.replace("../index.html");
 }
 

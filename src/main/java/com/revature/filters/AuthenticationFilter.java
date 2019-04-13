@@ -24,14 +24,14 @@ public class AuthenticationFilter implements Filter {
 	 * Default constructor.
 	 */
 	public AuthenticationFilter() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
 	 * @see Filter#destroy()
 	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
+		
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class AuthenticationFilter implements Filter {
 		if (session != null) {
 			if (session.getAttribute("username").equals("Matt")) {
 				// send the user to the appropriate web page
-				RequestDispatcher dispat = request.getRequestDispatcher("/Users/userhome.html");
+				RequestDispatcher dispat = request.getRequestDispatcher("./Users/userhome.html");
 				dispat.forward(request, response);
 				
 				//You can send error codes back to the client side using your response

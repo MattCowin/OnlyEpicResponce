@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link type="text/css" rel="stylesheet" href="onlyepic.css"/>
-    <!--  <script src="../Scripts/OnlyEpic.js"></script>-->
+   	<script src="../Scripts/OnlyEpic.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
@@ -15,7 +15,9 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
         <div class="navbar-header" style="margin: 0px; padding: 0px;">
-            <a class="navbar-brand" href="https://www.onlyepic.com/"><img src="onlyepiclogo.jpg" style="width: 90px; height: 55px; margin-top: -20px; margin-left: -20px; margin-right: -20px;"/></a>
+            <a class="navbar-brand" href="https://www.onlyepic.com/">
+            <img src="./Images/onlyepiclogo.jpg" style="width: 90px; height: 55px;
+             margin-top: -20px; margin-left: -20px; margin-right: -20px;"/></a>
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
@@ -50,7 +52,35 @@
             </div>
         </nav>
     </div>
-   
+   	<div id="reimbursments">
+        <button class="btn-danger" id="request" onclick="newRe()"></button>
+    </div>
+    <div class="tinfo">
+        <table class="request">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TYPE</th>
+                    <th>AMOUNT</th>
+                    <th>REASON</th>
+                    <th>SUBMITTED BY</th>
+                    <th>APPROVED BY</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     
 </body>
 

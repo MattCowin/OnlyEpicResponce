@@ -3,47 +3,32 @@ package com.revature.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="DBUSER")
-//DO
+
 public class DBUser implements Serializable {
-	@Id 
-	@Column(name="USER_ID", precision=5, scale=0)
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private int userId;
-	@Column(name="USERNAME", length=20, nullable = false)
 	private String username;
-	@Column(name="CREATED_BY")
-	private String createdBy;
-	@Column(name="CREATED_DATE")
-	private Date createdDate;
+	private String password;
+	private Date employeeId;
 
+	
+	
 	public DBUser() {
+		super();
+		
 	}
-
-	public DBUser(int userId, String username, String createdBy,
-			Date createdDate) {
+	
+	public DBUser(int userId, String username, String password, Date employeeId) {
+		super();
 		this.userId = userId;
 		this.username = username;
-		this.createdBy = createdBy;
-		this.createdDate = createdDate;
+		this.password = password;
+		this.employeeId = employeeId;
 	}
 
-	public DBUser(String username, String createdBy,
-			Date createdDate) {
-		this.username = username;
-		this.createdBy = createdBy;
-		this.createdDate = createdDate;
-	}
 	public int getUserId() {
-		return this.userId;
+		return userId;
 	}
 
 	public void setUserId(int userId) {
@@ -51,33 +36,35 @@ public class DBUser implements Serializable {
 	}
 
 	public String getUsername() {
-		return this.username;
+		return username;
 	}
 
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	public String getCreatedBy() {
-		return this.createdBy;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public Date getCreatedDate() {
-		return this.createdDate;
+	public Date getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setEmployeeId(Date employeeId) {
+		this.employeeId = employeeId;
 	}
 
 	@Override
 	public String toString() {
-		return "DBUser [userId=" + userId + ", username=" + username + ", createdBy=" + createdBy + ", createdDate="
-				+ createdDate + "]";
+		return "DBUser [userId=" + userId + ", username=" + username + ", password=" + password + ", employeeId="
+				+ employeeId + "]";
 	}
+
 	
+
 }
