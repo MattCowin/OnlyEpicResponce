@@ -11,25 +11,6 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <servlet-name>GetVsPost</servlet-name>
-    <servlet-class>com.revature.servlets.GetVsPost</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetVsPost</servlet-name>
-    <url-pattern>/GetVsPost</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>HelloWorldServlet</display-name>
-    <servlet-name>HelloWorldServlet</servlet-name>
-    <servlet-class>com.revature.servlets.HelloWorldServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HelloWorldServlet</servlet-name>
-    <url-pattern>/HelloWorldServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>LoginServlet</display-name>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.revature.servlets.LoginServlet</servlet-class>
@@ -73,26 +54,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>BakedCookies</display-name>
-    <servlet-name>BakedCookies</servlet-name>
-    <servlet-class>com.revature.session.BakedCookies</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BakedCookies</servlet-name>
-    <url-pattern>/BakedCookies</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>BurnCookies</display-name>
-    <servlet-name>BurnCookies</servlet-name>
-    <servlet-class>com.revature.session.BurnCookies</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BurnCookies</servlet-name>
-    <url-pattern>/BurnCookies</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>FrontControllerServlet</display-name>
     <servlet-name>FrontControllerServlet</servlet-name>
     <servlet-class>com.revature.servlets.FrontControllerServlet</servlet-class>
@@ -110,14 +71,4 @@
     <param-name>someName</param-name>
     <param-value>someValue</param-value>
   </context-param>
-  <servlet>
-    <description></description>
-    <display-name>GetPolkamans</display-name>
-    <servlet-name>GetPolkamans</servlet-name>
-    <servlet-class>com.revature.servlets.GetPolkamans</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetPolkamans</servlet-name>
-    <url-pattern>/GetPolkamans</url-pattern>
-  </servlet-mapping>
 </web-app>
