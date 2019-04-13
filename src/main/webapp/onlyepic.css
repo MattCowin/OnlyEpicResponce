@@ -31,7 +31,17 @@ h1{
 }
 
 #back{
-	border-radious: 25px;
+	border-radius: 25px;
 	padding: 4px;
 	background-color: blue;
+}
+
+#personelphoto{
+	width: 60px;
+	height: 60px;
+	border-radius: 25px;
+}
+
+.empform{
+    text-align: center;
 }
