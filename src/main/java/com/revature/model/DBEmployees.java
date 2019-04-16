@@ -1,45 +1,23 @@
 package com.revature.model;
 
-import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="EMPLOYEES")
-//DO
-public class DBEmployees implements Serializable {
 
-	@Id 
-	@Column(name="EMPLOYEE_ID", precision=4, scale=0)
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int employeetId;
-	@Column(name="FIRST_NAME", length=20)
+public class DBEmployees{
+
+	
+	private int employeeId;
 	private String firstName;
-	@Column(name="LAST_NAME", length=25)
 	private String lastName;
-	@Column(name="EMAIL", length=100, nullable=false)
 	private String email;
-	@Column(name="MOBILE", length=10, nullable=false)
 	private int mobile;
-	@Column(name="ADDRESS", length=100)
 	private String address;
-	@Column(name="CITY", length=50)
 	private String city;
-	@Column(name="STATE", length=2)
 	private String state;
-	@Column(name="COUNTRY_CODE", length=20)
 	private String countryCode;
-	@Column(name="SALARY", length=6)
 	private int salary;
-	@Column(name="POSITION_ID")
 	private int positionId;
-	@Column(name="MANAGER_ID", length=4)
-	private int managerId;
+	
 	
 	
 	public DBEmployees() {
@@ -48,9 +26,9 @@ public class DBEmployees implements Serializable {
 	}
 	
 	public DBEmployees(int employeetId, String firstName, String lastName, String email, int mobile, String address,
-			String city, String state, String countryCode, int salary, int positionId, int managerId) {
+			String city, String state, String countryCode, int salary, int positionId) {
 		super();
-		this.employeetId = employeetId;
+		this.employeeId = employeetId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -61,14 +39,14 @@ public class DBEmployees implements Serializable {
 		this.countryCode = countryCode;
 		this.salary = salary;
 		this.positionId = positionId;
-		this.managerId = managerId;
+		
 	}
 
 	public int getEmployeetId() {
-		return employeetId;
+		return employeeId;
 	}
 	public void setEmployeetId(int employeetId) {
-		this.employeetId = employeetId;
+		this.employeeId = employeetId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -130,20 +108,16 @@ public class DBEmployees implements Serializable {
 	public void setPositionId(int positionId) {
 		this.positionId = positionId;
 	}
-	public int getManagerId() {
-		return managerId;
-	}
-	public void setManagerId(int managerId) {
-		this.managerId = managerId;
-	}
 
 	@Override
 	public String toString() {
-		return "DBEmployees [employeetId=" + employeetId + ", firstName=" + firstName + ", lastName=" + lastName
+		return "DBEmployees [employeetId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", email=" + email + ", mobile=" + mobile + ", address=" + address + ", city=" + city + ", state="
-				+ state + ", countryCode=" + countryCode + ", salary=" + salary + ", positionId=" + positionId
-				+ ", managerId=" + managerId + "]";
+				+ state + ", countryCode=" + countryCode + ", salary=" + salary + ", positionId=" + positionId + "]";
 	}
+	
+
+	
 	
 	
 }

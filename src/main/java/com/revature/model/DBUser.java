@@ -8,9 +8,9 @@ import java.util.Date;
 public class DBUser implements Serializable {
 	
 	private int userId;
-	private String username;
-	private String password;
-	private Date employeeId;
+	private static String username;
+	private static String password;
+	private int employeeId;
 
 	
 	
@@ -19,11 +19,11 @@ public class DBUser implements Serializable {
 		
 	}
 	
-	public DBUser(int userId, String username, String password, Date employeeId) {
+	public DBUser(int userId, String username, String password, int employeeId) {
 		super();
 		this.userId = userId;
-		this.username = username;
-		this.password = password;
+		DBUser.username = username;
+		DBUser.password = password;
 		this.employeeId = employeeId;
 	}
 
@@ -35,7 +35,7 @@ public class DBUser implements Serializable {
 		this.userId = userId;
 	}
 
-	public String getUsername() {
+	public static String getUsername() {
 		return username;
 	}
 
@@ -43,7 +43,7 @@ public class DBUser implements Serializable {
 		this.username = username;
 	}
 
-	public String getPassword() {
+	public static String getPassword() {
 		return password;
 	}
 
@@ -51,11 +51,11 @@ public class DBUser implements Serializable {
 		this.password = password;
 	}
 
-	public Date getEmployeeId() {
+	public int getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setEmployeeId(Date employeeId) {
+	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
 

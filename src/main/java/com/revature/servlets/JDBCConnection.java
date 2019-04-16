@@ -3,51 +3,37 @@ package com.revature.servlets;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.revature.DBTables.Employees;
+import com.revature.DBTables.Position;
+import com.revature.DBTables.PositionList;
+import com.revature.DBTables.ReimbursementsRequest;
+import com.revature.DBTables.Users;
+
 public class JDBCConnection {
 
+	private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe"; 
+	private static final String UNAME = "Matt";
+	private static final String PSSWORD = "Dumb0";
 	
-	public void getUserFromDB(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException   {
+	public static Connection getDatarFromDB()  {
 		
-		 try {
 
-	            Class.forName("oracle.jdbc.driver.OracleDriver");
-
-	        } catch (ClassNotFoundException e) {
-
-	            System.out.println("Where is your Oracle JDBC Driver?");
-	            e.printStackTrace();
-	            return;
-
-	        }
-
-	        System.out.println("Oracle JDBC Driver Registered!");
-
-	        Connection connection = null;
-
-	        try {
-
-	            connection = DriverManager.getConnection(
-	                    "jdbc:oracle:thin:@localhost:1521:xe", "Matt", "Dumb0");
-
-	        } catch (SQLException e) {
-
-	            System.out.println("Connection Failed! Check output console");
-	            e.printStackTrace();
-	            return;
-
-	        }
-
-	        if (connection != null) {
-	            System.out.println("You made it, take control your database now!");
-	        } else {
-	            System.out.println("Failed to make connection!");
-	        }
+		try {
+			return DriverManager.getConnection(URL, UNAME, PSSWORD);			
 	    }
-
+		 catch (SQLException e) {
+				System.err.println(e);
+				e.printStackTrace();
+			}
+		return null;
+	}
 }
