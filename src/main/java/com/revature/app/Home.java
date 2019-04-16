@@ -25,11 +25,9 @@ public class Home {
 		try {
 			Users.getUserData();		
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException("Failed to get JDBC Connection");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException("Failed to locate H2 Database Driver");
 		}
 		
 		

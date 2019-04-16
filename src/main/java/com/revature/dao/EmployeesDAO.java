@@ -2,8 +2,6 @@ package com.revature.dao;
 
 import java.util.List;
 
-import com.revature.DBTables.Employees;
-import com.revature.DBTables.Users;
 import com.revature.model.DBEmployees;
 
 public interface EmployeesDAO {

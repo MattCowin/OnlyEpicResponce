@@ -46,3 +46,7 @@ function backTo(){
 	document.location.replace("../index.html");
 }
 
+function submit(){
+	
+}
+

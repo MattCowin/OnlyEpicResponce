@@ -24,7 +24,7 @@
             <li><a href="#">About Us</a></li>
             <li><a href="#">Contact HR</a></li>
         </ul>
-      <a href="login.html" style="float: right; padding-top: 15px; ">
+      <a href="./index.html" style="float: right; padding-top: 15px; ">
           Log Out<span class="glyphicon glyphicon-user"></span>
       </a>
   </div>
@@ -45,27 +45,37 @@
                     <li><a href="#">Soap N Suds</a></li>
                 </ul>
                 </li>
-                <li><a href="#">Reimbursements</a></li>
-                <li><a href="#">Employee Handbook</a></li>
-                <li><a href="#">Pay Schedule</a></li>
+                <li><a href="./reimbursments.html">Reimbursements</a></li>
+                <li><a href="./createrequest.html">Create Request</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-   	<div id="reimbursments">
-        <button class="btn-danger" id="request" onclick="newRe()"></button>
-    </div>
     <div class="tinfo">
-        <table class="request">
+        <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>TYPE</th>
-                    <th>AMOUNT</th>
-                    <th>REASON</th>
-                    <th>SUBMITTED BY</th>
-                    <th>APPROVED BY</th>
-                    <th>STATUS</th>
+                    <th id="id">ID</th>
+                    <th id="type">TYPE</th>
+                    <th id="amount">AMOUNT</th>
+                    <th id="reason">REASON</th>
+                    <th id="sub">SUBMITTED BY
+                        <select>
+                            <option></option>
+                            <option>Pending</option>
+                            <option>Approved</option>
+                            <option>Denied</option>
+                        </select>
+                    </th>                
+                    <th id="app">APPROVED BY</th>
+                    <th id="status">STATUS
+                        <select>
+                            <option></option>
+                            <option>Pending</option>
+                            <option>Approved</option>
+                            <option>Denied</option>
+                        </select>
+                    </th>
                 </tr>
             </thead>
             <tbody>

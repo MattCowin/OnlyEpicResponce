@@ -31,9 +31,7 @@ public class JDBCConnection {
 			return DriverManager.getConnection(URL, UNAME, PSSWORD);			
 	    }
 		 catch (SQLException e) {
-				System.err.println(e);
-				e.printStackTrace();
+			 throw new RuntimeException("Failed to get JDBC Connection");
 			}
-		return null;
-	}
+	}		
 }

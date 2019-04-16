@@ -27,7 +27,6 @@ h1{
 .emp{
     margin: auto;
     width: 80%;
-    
 }
 
 #back{
@@ -45,3 +44,27 @@ h1{
 .empform{
     text-align: center;
 }
+
+.tinfo{
+    margin: auto;
+    width: 85%;
+    text-align: center;
+}
+
+#reimbursments{
+    margin: auto;
+    width: 40%;
+    text-align: center;
+}
+
+#request{
+    background-color: cadetblue;
+}
+
+.nrequest{
+    margin: auto;
+    width: 60%;
+    background-color: rgb(232, 233, 234);
+    text-align: center;
+}
+

@@ -50,17 +50,21 @@
                 </ul>
             </div>
         </nav>
-        <form action="" class="empform">
-  			<img src="./Images/gibby.jpeg" alt="gibby" id="personelphoto"/>
-  			<h1>Gibby Hart</h1>
-  			<h6>Address</h6>
-  			
-
-  
-</form>
     </div>
-   
-    
+    <form action="" class="nrequest">
+        <select class="type">
+            <option>Please Select Type</option>
+            <option>Travel</option>
+            <option>Gas</option>
+            <option>Food</option>
+            <option>Supplies</option>
+            <option>Misc</option>
+        </select><br/>
+        <input type="number" placeholder="Enter Amount"/><br/>
+        <input type="text" placeholder="Enter Reason"/><br/>
+        <input type="number" placeholder="Enter Employee ID"/><br/>
+        <button class="btn" id="Submit" onclick="submit" >Submit</button>
+    </form>
 </body>
 
 </html>
