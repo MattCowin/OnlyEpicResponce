@@ -2,8 +2,12 @@ package com.revature.DBTables;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
-public class ReimbursementsRequest {
+import com.revature.dao.DBReimbursmentsDAO;
+import com.revature.model.DBReimbursments;
+
+public class ReimbursementsRequest implements DBReimbursmentsDAO{
 
 		public static void getData(ResultSet rsrr) throws SQLException {
 			while (rsrr.next()) {
@@ -17,5 +21,35 @@ public class ReimbursementsRequest {
 				buf.append(rsrr.getString("STATUS")+" ");
 				System.out.println(buf.toString()+" ");
 			}
+		}
+
+		@Override
+		public List<DBReimbursments> getAllReimbursments() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public DBReimbursments getReimbursmentsById(int userId) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public DBReimbursments createReimbursments(DBReimbursments Reimbursments) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public DBReimbursments updateReimbursments(DBReimbursments toBeUpdated) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public long deleteReimbursments(DBReimbursments... toBeDeleted) {
+			// TODO Auto-generated method stub
+			return 0;
 		}
 }

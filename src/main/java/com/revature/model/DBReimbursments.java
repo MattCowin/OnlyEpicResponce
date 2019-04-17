@@ -14,6 +14,7 @@ import javax.persistence.Table;
 //DO
 public class DBReimbursments implements Serializable {
 	
+	private static final long serialVersionUID = 2937671323208219081L;
 	@Id 
 	@Column(name="REIMBURSMENT_ID", precision=7, scale=0)
 	@GeneratedValue(strategy=GenerationType.AUTO)

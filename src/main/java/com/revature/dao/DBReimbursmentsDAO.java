@@ -9,7 +9,7 @@ public interface DBReimbursmentsDAO {
 
 	List<DBReimbursments> getAllReimbursments();
 	DBReimbursments getReimbursmentsById(int userId);
-	DBReimbursments createReimbursments(DBReimbursments Employees);
+	DBReimbursments createReimbursments(DBReimbursments Reimbursments);
 	DBReimbursments updateReimbursments(DBReimbursments toBeUpdated);
-	long deleteTodo(DBReimbursments...toBeDeleted);
+	long deleteReimbursments(DBReimbursments...toBeDeleted);
 }

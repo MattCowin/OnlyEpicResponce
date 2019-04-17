@@ -25,8 +25,8 @@ public class LoginServlet1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		resp.getWriter().append("Served at: ").append(req.getContextPath());
+		
+		//resp.getWriter().append("Served at: ").append(req.getContextPath());
 	
 	 	String username = req.getParameter("username");
 	    String password = req.getParameter("password");

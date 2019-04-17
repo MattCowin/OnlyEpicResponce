@@ -81,4 +81,24 @@
     <servlet-name>LoginServlet1</servlet-name>
     <url-pattern>/LoginServlet1</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PutRequests</display-name>
+    <servlet-name>PutRequests</servlet-name>
+    <servlet-class>com.revature.servlets.PutRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PutRequests</servlet-name>
+    <url-pattern>/PutRequests</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PutRequest</display-name>
+    <servlet-name>PutRequest</servlet-name>
+    <servlet-class>com.revature.servlets.PutRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PutRequest</servlet-name>
+    <url-pattern>/PutRequest</url-pattern>
+  </servlet-mapping>
 </web-app>
