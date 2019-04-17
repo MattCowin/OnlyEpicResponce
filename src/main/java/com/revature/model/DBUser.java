@@ -1,12 +1,11 @@
 package com.revature.model;
 
 import java.io.Serializable;
-import java.util.Date;
-
-
 
 public class DBUser implements Serializable {
 	
+
+	private static final long serialVersionUID = -1256558149464879520L;
 	private int userId;
 	private static String username;
 	private static String password;

@@ -1,6 +1,3 @@
-/**
- * Author: Matt Cowin
- */
 
 function get(url){
 	return new Promise((resolve, reject) =>{
@@ -49,4 +46,3 @@ function backTo(){
 function submit(){
 	
 }
-

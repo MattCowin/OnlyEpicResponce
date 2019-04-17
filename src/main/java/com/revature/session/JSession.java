@@ -33,11 +33,22 @@ public class JSession extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		HttpSession mySession = request.getSession();		
-		mySession.setAttribute("username", "Matt");
-		mySession.setAttribute("userId", "1");
-		mySession.setAttribute("password", "1234");
+		
+		//Returns a session if there is one. Creates one if not
+		HttpSession session = request.getSession();
+		  session.getAttribute("username");
+		  session.getAttribute("userId");
+		  session.getAttribute("password");
+	      Integer accessCount;
+	      synchronized(session) {
+	         accessCount = (Integer)session.getAttribute("accessCount");
+	         if (accessCount == null) {
+	            accessCount = 0;  
+	         } else {
+	            accessCount = new Integer(accessCount + 1);
+	         }
+	         session.setAttribute("accessCount", accessCount);
+	      }
 	}
 
 	/**
@@ -47,5 +58,5 @@ public class JSession extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+	
 }

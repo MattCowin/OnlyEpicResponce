@@ -1,21 +1,26 @@
 package com.revature.service;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
+import java.util.List;
 
-
+import com.revature.DBTables.Users;
+import com.revature.model.DBUser;
 
 public class UserService {
 
-	public static void getUserData(ResultSet rsu) throws SQLException, ClassNotFoundException {		
-		while (rsu.next()) {
-			StringBuffer buf = new StringBuffer();
-			buf.append(rsu.getInt("USER_ID")+" ");
-			buf.append(rsu.getString("USERNAME")+" ");
-			buf.append(rsu.getString("PASSWORD")+" ");
-			buf.append(rsu.getInt("EMPLOYEE_ID")+" ");
-			System.out.println(buf.toString()+" ");
-		}
+	public List<DBUser> getAllUsers(){
+		return new Users().getAllUsers();
+	}
+	
+	public DBUser getUsersById(int userId) {
+		return new Users().getUsersById(userId);
+	}
+	
+	public void createUsers(DBUser users) {
+		new Users().createUsers(users);
+	}
+	
+	public void deleteUsers(DBUser users) {
+		new Users().deleteUsers(users);
 	}
 }

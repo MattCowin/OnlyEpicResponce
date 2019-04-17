@@ -71,4 +71,14 @@
     <param-name>someName</param-name>
     <param-value>someValue</param-value>
   </context-param>
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet1</display-name>
+    <servlet-name>LoginServlet1</servlet-name>
+    <servlet-class>com.revature.servlets.LoginServlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet1</servlet-name>
+    <url-pattern>/LoginServlet1</url-pattern>
+  </servlet-mapping>
 </web-app>

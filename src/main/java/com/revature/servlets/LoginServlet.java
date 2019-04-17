@@ -50,15 +50,13 @@ public class LoginServlet extends HttpServlet {
 			throw new RuntimeException("Failed to get JDBC Connection");
 		}
 		
-    	if(username != null || Users.un.equals(username) || password != null || Users.pw.equals(password)) {
+    	if(username != null || Users.username.equals(username) || password != null || Users.password.equals(password)) {
     		response.sendRedirect("./userhome.html");
     	}
-//    	else if(username == null || username.contentEquals("") || password == null || password.contentEquals("")) { 
-//			response.sendRedirect("./index.html");
-//		}
-		else {
-			 response.sendRedirect("./index.html");
-		}
+    	else if(username == null || username.contentEquals("") || password == null || password.contentEquals("")) { 
+    		response.sendRedirect("./index.html");
+    	}
+		
 	}
 
 	/**

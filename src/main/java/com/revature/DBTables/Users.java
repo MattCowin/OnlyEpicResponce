@@ -8,14 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.dao.UserDAO;
-import com.revature.model.DBEmployees;
 import com.revature.model.DBUser;
 import com.revature.servlets.JDBCConnection;
 
 public class Users implements UserDAO{
 	
-	 private static final String SQL = "SELECT * FROM USERS";
-	 private static final String SQL1 = "SELECT USERNAME, PASSWORD FROM USERS";
+	 public static int userId;
+	 public static String username;
+	 public static String password;
+	 public static int employeeId;
+	 private static final String SQL = "SELECT * FROM USERS WHERE USER_ID =" + userId;
+	// private static final String SQL1 = "SELECT USERNAME, PASSWORD FROM USERS";
 	 public static String un = null;
 	 public static String pw = null;
 		public static void getUserData() throws SQLException, ClassNotFoundException {
@@ -57,24 +60,47 @@ public class Users implements UserDAO{
 		        }
 		        return usr;
 		}
+	
 		@Override
-		public Users getUsersById(int userId) {
-			
+		public DBUser getUsersById(int userId) {
+			DBUser user = new DBUser();
+			try {
+				Connection conn = JDBCConnection.getDatarFromDB();
+				Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = stmt.executeQuery(SQL);
+				
+				while (rs.next()) {
+					userId = rs.getInt("user_id");
+					username = rs.getString("username");
+					password = rs.getString("password");
+					employeeId = rs.getInt("employee_id");
+					user.setUserId(userId);
+					user.setUsername(username);
+					user.setPassword(password);
+					user.setEmployeeId(employeeId);
+				}
+			} catch (SQLException e) {
+				System.err.println(e);
+				e.printStackTrace();
+			}		
+			return user;
+		}
+
+		@Override
+		public DBUser createUsers(DBUser users) {
+			// TODO Auto-generated method stub
 			return null;
 		}
+
 		@Override
-		public Users createUsers(Users users) {
-			
+		public DBUser updateUsers(DBUser toBeUpdated) {
+			// TODO Auto-generated method stub
 			return null;
 		}
+
 		@Override
-		public Users updateUsers(Users toBeUpdated) {
-			
-			return null;
-		}
-		@Override
-		public long deleteUsers(Users... toBeDeleted) {
-			
+		public long deleteUsers(DBUser... toBeDeleted) {
+			// TODO Auto-generated method stub
 			return 0;
 		}
 	
