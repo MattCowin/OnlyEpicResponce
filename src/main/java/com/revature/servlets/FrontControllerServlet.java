@@ -2,6 +2,7 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,61 +10,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import com.revature.service.ReimbursmentsService;
+import com.revature.service.ReimbursmentsServiceImpl;
 
 /**
  * Servlet implementation class FrontControllerServlet
  */
-public class FrontControllerServlet extends HttpServlet {
+public class FrontControllerServlet{
 	private static final long serialVersionUID = 1L;
 	private static final Logger loge = Logger.getLogger(FrontControllerServlet.class);
-       
+	private static final ReimbursmentsService reimbursmentsService = new ReimbursmentsServiceImpl();
     /**
      * @see HttpServlet#HttpServlet()
      */
     public FrontControllerServlet() {
-        super();
-       
+        super();  
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		loge.info("Our Front Controller is working properly");
-		//The getRequestURI returns the URI this request is looking for
-		String uri = request.getRequestURI();
-		//allows you to split the string into several pieces and returns an array of those pieces
-		String[] uriPieces =uri.split("/");
-		//retrieving the last piece of the uri
-		String lastPiece = uriPieces[uriPieces.length -1];
-		//this looks like "something" -.do
-		String servletName = lastPiece.substring(0, lastPiece.length() -3).toLowerCase();
-		
-		switch(servletName) {
-		case "loginservlet1":
-			request.getRequestDispatcher("LoginServlet1").forward(request, response);
-			break;
-		case "MakeRequest":
-			request.getRequestDispatcher("MakeRequest").forward(request, response);
-			break;
+    public static Object process(HttpServletRequest req, HttpServletResponse resp) {
+		final String uri = req.getRequestURI().replace("/OnlyEpicRequest/", "");
+		System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
+		switch(uri) {
+		case "/Reimbursments":
+			return reimbursmentsService.getAllReimbursments(req, resp);
 		default:
-			
-			response.setContentType("text/plain");
-			PrintWriter pwr = response.getWriter();
-			pwr.write("The servlet you have requested doesn't exist");
-			//response.sendError(404);
-			break;
+			return Collections.singletonMap("message", "Not yet implemented. Stuck at FrontController process");
 		}
-		
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	
+	public static Object processPost(HttpServletRequest req, HttpServletResponse resp) {
+		final String uri = req.getRequestURI().replace("/OnlyEpicRequest/createrequest", "");
+		System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
+		switch(uri) {
+		case "/Reimbursments":
+			return reimbursmentsService.createReimbursments(req, resp);
+		default:
+			return Collections.singletonMap("message", "Not yet implemented. Stuck at FrontController processPost");
+		}
 	}
-
 }

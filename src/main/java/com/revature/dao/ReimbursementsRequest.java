@@ -8,34 +8,34 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.revature.model.DBReimbursments;
-import com.revature.model.DBUser;
 import com.revature.servlets.JDBCConnection;
 
 public class ReimbursementsRequest implements DBReimbursmentsDAO{
 
 		private static final String SQL = "SELECT * FROM REIMBURSEMENTS";
+		
 		public static void getData() throws ClassNotFoundException{
 			
 		}
 
 		@Override
 		public List<DBReimbursments> getAllReimbursments(){
-			List<DBReimbursments> re = new ArrayList();
+			List<DBReimbursments> Reimbursments = new ArrayList<>();
 			try (Connection conn = JDBCConnection.getDatarFromDB()){
 	            Statement stmt = conn.createStatement();
-	            ResultSet rs = stmt.executeQuery("SELECT * FROM REIMBURSEMENTS");
+	            ResultSet rs = stmt.executeQuery(SQL);
 	            while (rs.next()) {
-	            	re.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
+	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
+	           System.out.println(rs.getString("REIMBURSEMENT_TYPE"));
 	            }
+	            return Reimbursments;
 	        }
 	            catch (SQLException e) {
-		            System.err.println(e);
+		            e.printStackTrace();
 		        }
-		        return re;        
+		       return null;        
 		}
 
 		@Override
@@ -46,44 +46,29 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 
 		@Override
 		public DBReimbursments createReimbursments(DBReimbursments Reimbursments) {
-			// TODO Auto-generated method stub
-			return null;
+			try(Connection conn = JDBCConnection.getDatarFromDB()){
+				PreparedStatement stmt = conn.prepareStatement("INSERT INTO REIMBURSEMENTS(REIMBURSEMENT_TYPE,AMOUNT,REASON,EMPLOYEE_ID,STATUS) VALUES(?,?,?,?,?)");
+			
+				stmt.setString(2, Reimbursments.getReimbursmentType());
+				stmt.setFloat(3, Reimbursments.getAmount());
+				stmt.setString(4, Reimbursments.getReason());
+				stmt.setInt(5, Reimbursments.getEmployeeId());
+				stmt.setString(7, Reimbursments.getStatus());
+				
+				int rowsAffected = stmt.executeUpdate();
+				if(rowsAffected == 1)
+					return Reimbursments;
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return new DBReimbursments();
 		}
 
 		@Override
 		public DBReimbursments updateReimbursments(DBReimbursments toBeUpdated) {
+			return null;
 			
-			String status = "Pending";
-			String reimbursmentType;
-			String amt;
-			String reason; 
-			String emplId;
-			
-			
-			
-//			try {
-//				Class.forName("oracle.jdbc.driver.OracleDriver");
-//				 Connection conn = JDBCConnection.getDatarFromDB();
-//			        PreparedStatement ps = conn.prepareStatement
-//			                            ("INSERT INTO REIMBURSEMENTS(REIMBURSEMENT_TYPE,AMOUNT,REASON,EMPLOYEE_ID,STATUS) VALUES(?,?,?,?,?)");
-//			        ps.setString(1, reimbursmentType);
-//			        ps.setFloat(2, amount);
-//			        ps.setString(3, reason);
-//			        ps.setInt(4, employeeId);
-//			        ps.setString(5, status);
-//			       int row = ps.executeUpdate();
-//			       if (row > 0) {
-//			    	   System.out.println(conn);
-//		            }
-//			} 
-//			catch (ClassNotFoundException e) {
-//				throw new RuntimeException("Failed to locate Database Driver");
-//			} 
-//			catch (SQLException e) {
-//				System.out.println("What the F#@&");
-//				throw new RuntimeException("Failed to get JDBC Connection");
-//		    }
-			return toBeUpdated;
 		}
 
 		@Override
@@ -92,9 +77,4 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 			return 0;
 		}
 
-//		@Override
-//		public List<DBReimbursments> getAllReimbursments(HttpServletRequest req, HttpServletResponse resp) {
-//			// TODO Auto-generated method stub
-//			return null;
-//		}
 }

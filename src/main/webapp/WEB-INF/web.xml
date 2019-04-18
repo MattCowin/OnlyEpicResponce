@@ -53,15 +53,13 @@
     <url-pattern>/InvailedSession</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>FrontControllerServlet</display-name>
-    <servlet-name>FrontControllerServlet</servlet-name>
-    <servlet-class>com.revature.servlets.FrontControllerServlet</servlet-class>
+    <servlet-name>FrontController</servlet-name>
+    <servlet-class>com.revature.servlets.MakeRequest</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>FrontControllerServlet</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <servlet-name>FrontController</servlet-name>
+    <url-pattern>/api/#</url-pattern>
   </servlet-mapping>
   <error-page>
     <error-code>404</error-code>
@@ -83,13 +81,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>PutRequests</display-name>
-    <servlet-name>PutRequests</servlet-name>
-    <servlet-class>com.revature.servlets.PutRequests</servlet-class>
+    <display-name>PutRequest</display-name>
+    <servlet-name>PutRequest</servlet-name>
+    <servlet-class>com.revature.servlets.PutRequest</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>PutRequests</servlet-name>
-    <url-pattern>/PutRequests</url-pattern>
+    <servlet-name>PutRequest</servlet-name>
+    <url-pattern>/PutRequest</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

@@ -22,7 +22,7 @@ public class ReimbursmentsServiceImpl implements ReimbursmentsService {
 
 	@Override
 	public DBReimbursments getReimbursmentsById(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -36,8 +36,8 @@ public class ReimbursmentsServiceImpl implements ReimbursmentsService {
 	@Override
 	public DBReimbursments createReimbursments(HttpServletRequest req, HttpServletResponse resp) {
 		try {
-			DBReimbursments re = mapper.readValue(req.getInputStream(), DBReimbursments.class);
-			return dao.createReimbursments(re);
+			DBReimbursments Reimbursments = mapper.readValue(req.getInputStream(), DBReimbursments.class);
+			return dao.createReimbursments(Reimbursments);
 			}
 			catch (IOException e) {
 				return null;
