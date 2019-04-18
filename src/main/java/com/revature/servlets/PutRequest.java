@@ -29,8 +29,42 @@ public class PutRequest extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String status = "Pending";
+		String reimbursmentType;
+		String amt;
+		String reason; 
+		String emplId;
+		reimbursmentType = request.getParameter("reimbursmentType");
+		amt = request.getParameter("amount");
+		reason = request.getParameter("reason");
+		emplId = request.getParameter("employeeId");
+		int employeeId = Integer.parseInt(emplId);
+		float amount = Float.parseFloat(amt);
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			 Connection conn = JDBCConnection.getDatarFromDB();
+		        PreparedStatement ps = conn.prepareStatement
+		                            ("INSERT INTO REIMBURSEMENTS(REIMBURSEMENT_TYPE,AMOUNT,REASON,EMPLOYEE_ID,STATUS) VALUES(?,?,?,?,?)");
+		        ps.setString(1, reimbursmentType);
+		        ps.setFloat(2, amount);
+		        ps.setString(3, reason);
+		        ps.setInt(4, employeeId);
+		        ps.setString(5, status);
+		       int row = ps.executeUpdate();
+		       if (row > 0) {
+		    	   System.out.println(conn);
+	            }
+		} 
+		catch (ClassNotFoundException e) {
+			throw new RuntimeException("Failed to locate Database Driver");
+		} 
+		catch (SQLException e) {
+			System.out.println("What the F#@&");
+			throw new RuntimeException("Failed to get JDBC Connection");
+	    }
+		 
+       
 	}
 
 	/**

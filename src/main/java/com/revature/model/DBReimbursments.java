@@ -2,34 +2,17 @@ package com.revature.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="REIMBURSEMENTS_REQUEST")
-//DO
+
 public class DBReimbursments implements Serializable {
 	
 	private static final long serialVersionUID = 2937671323208219081L;
-	@Id 
-	@Column(name="REIMBURSMENT_ID", precision=7, scale=0)
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int reimbursmentId;
-	@Column(name="REIMBURSMENT_TYPE", length=20)
 	private String reimbursmentType;
-	@Column(name="AMOUNT", length=6)
-	private int amount;
-	@Column(name="REASON", length=255)
+	private float amount;
 	private String reason;
-	@Column(name="EMPLOYEE_ID", length=4)
 	private int employeeId;
-	@Column(name="APPROVED_BY", length=4)
 	private int approvedBy;
-	@Column(name="STATUS", length=20)
 	private String status;
 	
 	
@@ -38,7 +21,7 @@ public class DBReimbursments implements Serializable {
 		
 	}
 	
-	public DBReimbursments(int reimbursmentId, String reimbursmentType, int amount, String reason, int employeeId,
+	public DBReimbursments(int reimbursmentId, String reimbursmentType, float amount, String reason, int employeeId,
 			int approvedBy, String status) {
 		super();
 		this.reimbursmentId = reimbursmentId;
@@ -62,7 +45,7 @@ public class DBReimbursments implements Serializable {
 	public void setReimbursmentType(String reimbursmentType) {
 		this.reimbursmentType = reimbursmentType;
 	}
-	public int getAmount() {
+	public float getAmount() {
 		return amount;
 	}
 	public void setAmount(int amount) {

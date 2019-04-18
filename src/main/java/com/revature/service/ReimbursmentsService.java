@@ -2,26 +2,20 @@ package com.revature.service;
 
 import java.util.List;
 
-import com.revature.DBTables.ReimbursementsRequest;
-import com.revature.DBTables.Users;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
 import com.revature.model.DBReimbursments;
-import com.revature.model.DBUser;
 
-public class ReimbursmentsService {
 
-	public List<DBReimbursments> getAllReimbursments(){
-		return new ReimbursementsRequest().getAllReimbursments();
-	}
+public interface ReimbursmentsService {
+
+	public List<DBReimbursments> getAllReimbursments(HttpServletRequest req, HttpServletResponse resp);
 	
-	public DBReimbursments getReimbursmentsById(int reimbursmentId) {
-		return new ReimbursementsRequest().getReimbursmentsById(reimbursmentId);
-	}
+	public DBReimbursments getReimbursmentsById(HttpServletRequest req, HttpServletResponse resp); 
 	
-	public void createReimbursments(DBReimbursments Reimbursments) {
-		new ReimbursementsRequest().createReimbursments(Reimbursments);
-	}
+	public void createReimbursments(HttpServletRequest req, HttpServletResponse resp);
 	
-	public void updateReimbursments(DBReimbursments Reimbursments) {
-		new ReimbursementsRequest().updateReimbursments(Reimbursments);
-	}
+	public void updateReimbursments(HttpServletRequest req, HttpServletResponse resp);
 }

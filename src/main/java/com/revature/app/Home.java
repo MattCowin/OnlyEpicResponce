@@ -23,11 +23,12 @@ public class Home {
 	public static void main(String[] args) throws SQLException, ClassNotFoundException{
 		
 		try {
-			Users.getUserData();		
+			Users.getUserData();
+			//ReimbursementsRequest.getData();
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("Failed to get JDBC Connection");
 		} catch (SQLException e) {
-			throw new RuntimeException("Failed to locate H2 Database Driver");
+			throw new RuntimeException("Failed to locate Oracle Database Driver");
 		}
 		
 		
