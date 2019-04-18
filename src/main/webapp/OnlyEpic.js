@@ -1,4 +1,6 @@
-
+window.onload = () => {
+	getAllReimbursements();
+}
 //function get(url){
 //	return new Promise((resolve, reject) =>{
 //		let xhr =new XMLHttpRequest();
@@ -85,6 +87,6 @@ const getAllReimbursements = () => {
 			populateReimbursementsTable(JSON.parse(json));
 		}
 	};
-	xhr.open("GET", "");
+	xhr.open("GET", "./MakeRequest");
 	xhr.send();
 }

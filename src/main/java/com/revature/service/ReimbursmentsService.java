@@ -11,11 +11,11 @@ import com.revature.model.DBReimbursments;
 
 public interface ReimbursmentsService {
 
-	public List<DBReimbursments> getAllReimbursments(HttpServletRequest req, HttpServletResponse resp);
+	List<DBReimbursments> getAllReimbursments(HttpServletRequest req, HttpServletResponse resp);
 	
-	public DBReimbursments getReimbursmentsById(HttpServletRequest req, HttpServletResponse resp); 
+    DBReimbursments getReimbursmentsById(HttpServletRequest req, HttpServletResponse resp); 
 	
-	public void createReimbursments(HttpServletRequest req, HttpServletResponse resp);
+	DBReimbursments createReimbursments(HttpServletRequest req, HttpServletResponse resp);
 	
-	public void updateReimbursments(HttpServletRequest req, HttpServletResponse resp);
+	DBReimbursments updateReimbursments(HttpServletRequest req, HttpServletResponse resp);
 }

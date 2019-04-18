@@ -9,7 +9,7 @@ import com.revature.model.DBReimbursments;
 
 public interface DBReimbursmentsDAO {
 
-	List<DBReimbursments> getAllReimbursments(HttpServletRequest req, HttpServletResponse resp);
+	List<DBReimbursments> getAllReimbursments();
 	DBReimbursments getReimbursmentsById(int userId);
 	DBReimbursments createReimbursments(DBReimbursments Reimbursments);
 	DBReimbursments updateReimbursments(DBReimbursments toBeUpdated);

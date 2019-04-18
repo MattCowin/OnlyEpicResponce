@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link type="text/css" rel="stylesheet" href="onlyepic.css"/>
-   	
+   	<script src="OnlyEpic.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
@@ -35,7 +35,7 @@
         <nav class="navbar navbar">
             <div class="container-fluid">
                 <ul class="nav navbar-nav" style="text-align: center;">
-                <li><a href="./userhome.html">Home</a></li>
+                <li><a href="./managerhome.html">Home</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="selectBox">Projects
                     <span class="caret"></span></a>
@@ -45,45 +45,21 @@
                     <li><a href="#">Soap N Suds</a></li>
                 </ul>
                 </li>
-                <li><a href="./reimbursments.html">Reimbursements</a></li>
+                <li><a href="./managerreimbursments.html">Reimbursements</a></li>
                 <li><a href="./createrequest.html">Create Request</a></li>
                 </ul>
             </div>
         </nav>
+        <form action="" class="empform">
+  			<h1>Gibby Hart</h1>
+  			<h6>Address</h6>
+  			
+
+  
+</form>
     </div>
-    <div class="tinfo">
-        <table class="table" id="ertable">
-            <thead>
-                <tr>
-                    <th id="id">ID</th>
-                    <th id="type">TYPE</th>
-                    <th id="amount">AMOUNT</th>
-                    <th id="reason">REASON</th>
-                    <th id="sub">SUBMITTED BY
-                        <select>
-                            <option></option>
-                            <option>Pending</option>
-                            <option>Approved</option>
-                            <option>Denied</option>
-                        </select>
-                    </th>                
-                    <th id="app">APPROVED BY</th>
-                    <th id="status">STATUS
-                        <select>
-                            <option></option>
-                            <option>Pending</option>
-                            <option>Approved</option>
-                            <option>Denied</option>
-                        </select>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-    </div>
-    <script src="OnlyEpic.js"></script>
+   
+    
 </body>
 
 </html>

@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.revature.DBTables.Employees;
 import com.revature.DBTables.Position;
 import com.revature.DBTables.PositionList;
-import com.revature.DBTables.ReimbursementsRequest;
 import com.revature.DBTables.Users;
+import com.revature.dao.ReimbursementsRequest;
 
 public class JDBCConnection {
 

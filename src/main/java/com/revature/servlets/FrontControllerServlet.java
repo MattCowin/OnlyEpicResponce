@@ -44,6 +44,9 @@ public class FrontControllerServlet extends HttpServlet {
 		case "loginservlet1":
 			request.getRequestDispatcher("LoginServlet1").forward(request, response);
 			break;
+		case "MakeRequest":
+			request.getRequestDispatcher("MakeRequest").forward(request, response);
+			break;
 		default:
 			
 			response.setContentType("text/plain");

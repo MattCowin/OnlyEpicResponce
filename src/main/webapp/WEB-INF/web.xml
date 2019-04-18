@@ -93,12 +93,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>PutRequest</display-name>
-    <servlet-name>PutRequest</servlet-name>
-    <servlet-class>com.revature.servlets.PutRequest</servlet-class>
+    <display-name>MakeRequest</display-name>
+    <servlet-name>MakeRequest</servlet-name>
+    <servlet-class>com.revature.servlets.MakeRequest</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>PutRequest</servlet-name>
-    <url-pattern>/PutRequest</url-pattern>
+    <servlet-name>MakeRequest</servlet-name>
+    <url-pattern>/MakeRequest</url-pattern>
   </servlet-mapping>
 </web-app>
