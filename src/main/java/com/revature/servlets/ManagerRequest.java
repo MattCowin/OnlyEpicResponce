@@ -18,14 +18,14 @@ import com.revature.service.ReimbursmentsServiceImpl;
 /**
  * Servlet implementation class PutRequest
  */
-public class PutRequest extends HttpServlet {
+public class ManagerRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final ObjectMapper mapper = new ObjectMapper();  
 	ReimbursmentsService Reimbursement = new ReimbursmentsServiceImpl();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PutRequest() {
+    public ManagerRequest() {
         super();
         // TODO Auto-generated constructor stub
     }

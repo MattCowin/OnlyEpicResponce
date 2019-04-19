@@ -1,9 +1,11 @@
-package com.revature.servlets;
+package com.revature.checks;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.revature.servlets.JDBCConnection;
 
 public class Validate {
 

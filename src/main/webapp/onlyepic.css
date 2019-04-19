@@ -68,3 +68,14 @@ h1{
     text-align: center;
 }
 
+.getter{
+	margin: auto;
+    width: 40%;
+    text-align: center;
+}
+
+#ReimbursementsTable{
+	width:80%;
+	height:80%;
+}
+

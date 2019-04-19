@@ -35,7 +35,7 @@
         <nav class="navbar navbar">
             <div class="container-fluid">
                 <ul class="nav navbar-nav" style="text-align: center;">
-                <li><a href="./userhome.html">Home</a></li>
+                <li><a href="./managerhome.html">Home</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="selectBox">Projects
                     <span class="caret"></span></a>
@@ -45,45 +45,25 @@
                     <li><a href="#">Soap N Suds</a></li>
                 </ul>
                 </li>
-                <li><a href="./reimbursments.html">Reimbursements</a></li>
+                <li><a href="./managerreimbursments.html">Reimbursements</a></li>
                 <li><a href="./createrequest.html">Create Request</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    <div class="tinfo">
-        <table class="table" id="ReimbursementsTable">
-            <thead>
-                <tr>
-                    <th id="id">ID</th>
-                    <th id="type">TYPE</th>
-                    <th id="amount">AMOUNT</th>
-                    <th id="reason">REASON</th>
-                    <th id="sub">SUBMITTED BY
-                        <select>
-                            <option></option>
-                            <option>Pending</option>
-                            <option>Approved</option>
-                            <option>Denied</option>
-                        </select>
-                    </th>                
-                    <th id="app">APPROVED BY</th>
-                    <th id="status">STATUS
-                        <select>
-                            <option></option>
-                            <option>Pending</option>
-                            <option>Approved</option>
-                            <option>Denied</option>
-                        </select>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-    </div>
-    <script src="OnlyEpic.js"></script>
+    <form action="" class="nrequest">
+        <select class="type" name="reimbursmentType">Please Select Type
+            <option>Travel</option>
+            <option>Gas</option>
+            <option>Food</option>
+            <option>Supplies</option>
+            <option>Misc</option>
+        </select><br/>
+        <input type="number" placeholder="Enter Amount" name="amount"/><br/>
+        <input type="text" placeholder="Enter Reason" name="reason"/><br/>
+        <input type="number" placeholder="Enter Employee ID" name="employeeId"/><br/>
+        <button class="btn" id="Submit">Submit</button>
+    </form>
     <script src="onlyepic1.js"></script>
 </body>
 

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,9 +26,9 @@
             <li><a href="#">About Us</a></li>
             <li><a href="#">Contact HR</a></li>
         </ul>
-      <a href="./index.html" style="float: right; padding-top: 15px; ">
+      <form method="get" action="./invalidateSession"><a  href="./index.html" style="float: right; padding-top: 15px; ">
           Log Out<span class="glyphicon glyphicon-user"></span>
-      </a>
+      </a></form>
   </div>
 </nav>
     <br/>
@@ -35,18 +37,10 @@
         <nav class="navbar navbar">
             <div class="container-fluid">
                 <ul class="nav navbar-nav" style="text-align: center;">
-                <li><a href="./userhome.html">Home</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="selectBox">Projects
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Hunter Road Medical Center</a></li>
-                    <li><a href="#">Walgreens</a></li>
-                    <li><a href="#">Soap N Suds</a></li>
-                </ul>
-                </li>
-                <li><a href="./reimbursments.html">Reimbursements</a></li>
-                <li><a href="./createrequest.html">Create Request</a></li>
+                <li><a href="./managerhome.jsp">Home</a></li>
+                <li><a href="./managerreimbursments.jsp">Reimbursements</a></li>
+                <li><a href="./viewallreimbursements.jsp">View All Reimbursements</a></li>
+                <li><a href="./mcreaterequest.jsp">Create Request</a></li>
                 </ul>
             </div>
         </nav>
@@ -64,7 +58,6 @@
         <input type="number" placeholder="Enter Employee ID" name="employeeId"/><br/>
         <button class="btn" id="Submit">Submit</button>
     </form>
-    <script src="OnlyEpic.js"></script>
     <script src="onlyepic1.js"></script>
 </body>
 

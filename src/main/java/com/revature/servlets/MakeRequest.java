@@ -29,6 +29,7 @@ public class MakeRequest extends HttpServlet {
 		resp.setContentType("application/json");
 		resp.getOutputStream().write(mapper.writeValueAsBytes(AddToPage.process(req, resp)));
 		System.out.println("Response sent successfully MakeRequest doGet!");
+//		req.getRequestDispatcher("http://localhost:8088/OnlyEpicRequest/api/Reimbursments").forward(req, resp);
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

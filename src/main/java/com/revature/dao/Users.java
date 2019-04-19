@@ -1,4 +1,4 @@
-package com.revature.DBTables;
+package com.revature.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.dao.UserDAO;
 import com.revature.model.DBUser;
 import com.revature.servlets.JDBCConnection;
 

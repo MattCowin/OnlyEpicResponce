@@ -32,7 +32,10 @@ public class InvalidateSession extends HttpServlet {
 		//error checking before we
 		
 		if(session != null) {
+			session.setMaxInactiveInterval(180);
+			session.removeAttribute("currentUser");
 			session.invalidate();
+			response.sendRedirect("http://localhost:8088/OnlyEpicRequest");
 		}
 	}
 

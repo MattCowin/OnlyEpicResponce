@@ -53,13 +53,13 @@
     <url-pattern>/InvailedSession</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>FrontController</servlet-name>
-    <servlet-class>com.revature.servlets.MakeRequest</servlet-class>
-    <load-on-startup>1</load-on-startup>
+    <servlet-name>AddToPage</servlet-name>
+    <servlet-class>com.revature.servlets.AddToPage</servlet-class>
+    <load-on-startup>0</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>FrontController</servlet-name>
-    <url-pattern>/api/#</url-pattern>
+    <servlet-name>AddToPage</servlet-name>
+    <url-pattern>/OnlyEpicRequest/*</url-pattern>
   </servlet-mapping>
   <error-page>
     <error-code>404</error-code>
@@ -98,5 +98,25 @@
   <servlet-mapping>
     <servlet-name>MakeRequest</servlet-name>
     <url-pattern>/MakeRequest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetRequests</display-name>
+    <servlet-name>GetRequests</servlet-name>
+    <servlet-class>com.revature.servlets.GetRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetRequests</servlet-name>
+    <url-pattern>/GetRequests</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InsertReimbursement</display-name>
+    <servlet-name>InsertReimbursement</servlet-name>
+    <servlet-class>com.revature.servlets.InsertReimbursement</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertReimbursement</servlet-name>
+    <url-pattern>/InsertReimbursement</url-pattern>
   </servlet-mapping>
 </web-app>

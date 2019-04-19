@@ -6,9 +6,6 @@ function backTo(){
 	document.location.replace("../index.html");
 }
 
-function submit(){
-	
-}
 
 const getAllReimbursements = () => {
 	const xhr = new XMLHttpRequest();
@@ -20,7 +17,7 @@ const getAllReimbursements = () => {
 			populateReimbursementsTable(json);
 		}
 	};
-	xhr.open("GET", "http://localhost:8088/OnlyEpicRequest/api/reimbursments");
+	xhr.open("GET", "http://localhost:8088/OnlyEpicRequest/reimbursments");
 	xhr.send();
 }
 
@@ -31,7 +28,6 @@ const populateReimbursementsTable = (listOfDBReimbursments) =>{
 		const tdAmount = document.createElement("td");
 		const tdReason = document.createElement("td");
 		const tdSubmittedBy = document.createElement("td");
-		const tdApprovedBy = document.createElement("td");
 		const tdStatus = document.createElement("td");
 		
 		tdId.textContent = Reimbursments.reimbursmentId;
@@ -39,7 +35,6 @@ const populateReimbursementsTable = (listOfDBReimbursments) =>{
 		tdAmount.textContent = Reimbursments.amount;
 		tdReason.textContent = Reimbursments.reason;
 		tdSubmittedBy.textContent = Reimbursments.employeeId;
-		tdApprovedBy.textContent = Reimbursments.approvedBy;
 		tdStatus.textContent = Reimbursments.status;
 		
 		const row = document.createElement("tr");
@@ -48,7 +43,6 @@ const populateReimbursementsTable = (listOfDBReimbursments) =>{
 		row.appendChild(tdAmount);
 		row.appendChild(tdReason);
 		row.appendChild(tdSubmittedBy);
-		row.appendChild(tdApprovedBy);
 		row.appendChild(tdStatus);
 		
 		document.getElementById("ReimbursementsTable").appendChild(row);

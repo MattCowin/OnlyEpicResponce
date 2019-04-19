@@ -3,24 +3,16 @@
 <head>
     <meta charset="UTF-8"/>
     <link type="text/css" rel="stylesheet" href="onlyepic.css"/>
-    <script src="OnlyEpic.js"></script>
-    <SCRIPT type="text/javascript">
-		window.history.forward();
-		function noBack() { window.history.forward(); }
-    </SCRIPT>
+   	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-    <title>Only Epic Holdings</title>
+    <title>Employee Info</title>
     <meta name="author" content="Matt Cowin" />
 </head>
-<body onload="noBack();" 
-	onpageshow="if (event.persisted) noBack();" onunload="">
-    <nav class="navbar navbar-default">
+<body>
+  <nav class="navbar navbar-default">
         <div class="container-fluid">
         <div class="navbar-header" style="margin: 0px; padding: 0px;">
             <a class="navbar-brand" href="https://www.onlyepic.com/">
@@ -29,20 +21,37 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact HR</a></li>
+            <li><a href="https://www.onlyepic.com/">About Us</a></li>
         </ul>
+      <form method="get" action="./invalidateSession"><a  href="./index.html" style="float: right; padding-top: 15px; ">
+          Log Out<span class="glyphicon glyphicon-user"></span>
+      </a></form>
   </div>
 </nav>
-<form class="sgnin" method="post" action="./LoginServlet1" >
-        <div class="fhead">
-        </div>
-        <h1>Log In</h1>
-        <input type="text" name="username" placeholder="User Name" id="uname"/><br/>
-        <input type="password" name="password" placeholder="Password" id="password"/><br/><br/>
-        <button class="btn-danger" id="signin">Sign In</button>
+    <br/>
+
+    <div class="emp" id="emp1">    
+        <nav class="navbar navbar">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav" style="text-align: center;">
+                <li><a href="./userhome.jsp">Home</a></li>
+                <li><a href="./reimbursments.jsp">Reimbursements</a></li>
+                <li><a href="./createrequest.jsp">Create Request</a></li>
+                </ul>
+            </div>
+        </nav>
+     </div>
+        <form action="" class="empform">
+  			<h1><%=session.getAttribute("currentUser") %></h1>
+  			
+  			
+
+  
 </form>
-    
+   
+   
+    <script src="OnlyEpic.js"></script>
+    <script src="onlyepic1.js"></script>
 </body>
 
 </html>

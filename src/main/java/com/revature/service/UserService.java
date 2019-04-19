@@ -3,7 +3,7 @@ package com.revature.service;
 
 import java.util.List;
 
-import com.revature.DBTables.Users;
+import com.revature.dao.Users;
 import com.revature.model.DBUser;
 
 public class UserService {

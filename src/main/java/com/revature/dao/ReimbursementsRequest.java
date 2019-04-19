@@ -12,6 +12,8 @@ import java.util.List;
 import com.revature.model.DBReimbursments;
 import com.revature.servlets.JDBCConnection;
 
+import oracle.sql.STRUCT;
+
 public class ReimbursementsRequest implements DBReimbursmentsDAO{
 
 		private static final String SQL = "SELECT * FROM REIMBURSEMENTS";
@@ -19,9 +21,95 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 		public static void getData() throws ClassNotFoundException{
 			
 		}
-
+		
+	
 		@Override
 		public List<DBReimbursments> getAllReimbursments(){
+			List<DBReimbursments> Reimbursments = new ArrayList<>();
+			try (Connection conn = JDBCConnection.getDatarFromDB()){
+	            Statement stmt = conn.createStatement();
+	            ResultSet rs = stmt.executeQuery(SQL);
+	            while (rs.next()) {
+	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
+	          // System.out.println(rs.getString("REIMBURSEMENT_TYPE"));
+	            }
+	            return Reimbursments;
+	        }
+	            catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		       return null;        
+		}
+		
+		@Override
+		public List<DBReimbursments> getAllReimbursmentsByEmployeeId(int employee_id){
+			final List<DBReimbursments> reimbursments = new ArrayList<>();
+			try(Connection conn = JDBCConnection.getDatarFromDB()){
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS WHERE EMPLOYEE_ID=? ");
+				stmt.setInt(1, employee_id);
+				ResultSet rs = stmt.executeQuery();
+				while (rs.next()){
+					reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
+				}
+				return reimbursments;
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return reimbursments;
+		}
+		
+		@Override
+		public DBReimbursments getReimbursmentsById(int userId) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public DBReimbursments createReimbursments(DBReimbursments Reimbursments) {
+			try(Connection conn = JDBCConnection.getDatarFromDB()){
+				PreparedStatement stmt = conn.prepareStatement("INSERT INTO REIMBURSEMENTS(REIMBURSEMENT_TYPE,AMOUNT,REASON,EMPLOYEE_ID,STATUS) VALUES(?,?,?,?,?)");
+			
+				stmt.setString(1, Reimbursments.getReimbursmentType());
+				stmt.setFloat(2, Reimbursments.getAmount());
+				stmt.setString(3, Reimbursments.getReason());
+				stmt.setInt(4, Reimbursments.getEmployeeId());
+				stmt.setString(5, Reimbursments.getStatus());
+				
+				int rowsAffected = stmt.executeUpdate();
+				if(rowsAffected == 1)
+					return Reimbursments;
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return new DBReimbursments();
+		}
+		
+			
+		@Override
+		public DBReimbursments updateReimbursments(DBReimbursments toBeUpdated) {
+			PreparedStatement stmt = null;
+			try(Connection conn = JDBCConnection.getDatarFromDB()){
+			    stmt = conn.prepareStatement("INSERT INTO REIMBURSEMENTS(APPROVED_BY, STATUS) WHERE EMPLOYEE_ID=?");
+			    stmt.setInt(1, toBeUpdated.getApprovedBy());
+				stmt.setString(2, toBeUpdated.getStatus());
+				stmt.executeUpdate();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			return updateReimbursments(toBeUpdated);
+		}
+
+		@Override
+		public long deleteReimbursments(DBReimbursments... toBeDeleted) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public List<DBReimbursments> getAllReimbursments(String username) {
 			List<DBReimbursments> Reimbursments = new ArrayList<>();
 			try (Connection conn = JDBCConnection.getDatarFromDB()){
 	            Statement stmt = conn.createStatement();
@@ -35,46 +123,7 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 	            catch (SQLException e) {
 		            e.printStackTrace();
 		        }
-		       return null;        
-		}
-
-		@Override
-		public DBReimbursments getReimbursmentsById(int userId) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public DBReimbursments createReimbursments(DBReimbursments Reimbursments) {
-			try(Connection conn = JDBCConnection.getDatarFromDB()){
-				PreparedStatement stmt = conn.prepareStatement("INSERT INTO REIMBURSEMENTS(REIMBURSEMENT_TYPE,AMOUNT,REASON,EMPLOYEE_ID,STATUS) VALUES(?,?,?,?,?)");
-			
-				stmt.setString(2, Reimbursments.getReimbursmentType());
-				stmt.setFloat(3, Reimbursments.getAmount());
-				stmt.setString(4, Reimbursments.getReason());
-				stmt.setInt(5, Reimbursments.getEmployeeId());
-				stmt.setString(7, Reimbursments.getStatus());
-				
-				int rowsAffected = stmt.executeUpdate();
-				if(rowsAffected == 1)
-					return Reimbursments;
-			}catch (SQLException e) {
-				e.printStackTrace();
-			}
-			
-			return new DBReimbursments();
-		}
-
-		@Override
-		public DBReimbursments updateReimbursments(DBReimbursments toBeUpdated) {
-			return null;
-			
-		}
-
-		@Override
-		public long deleteReimbursments(DBReimbursments... toBeDeleted) {
-			// TODO Auto-generated method stub
-			return 0;
+		       return Reimbursments;       
 		}
 
 }

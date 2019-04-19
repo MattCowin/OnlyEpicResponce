@@ -1,4 +1,4 @@
-package com.revature.DBTables;
+package com.revature.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.dao.EmployeesDAO;
 import com.revature.model.DBEmployees;
 import com.revature.servlets.JDBCConnection;
 

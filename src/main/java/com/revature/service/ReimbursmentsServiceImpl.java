@@ -17,13 +17,17 @@ public class ReimbursmentsServiceImpl implements ReimbursmentsService {
 	private final ObjectMapper mapper = new ObjectMapper();
 	@Override
 	public List<DBReimbursments> getAllReimbursments(HttpServletRequest req, HttpServletResponse resp) {
+		final String username = (String) req.getSession().getAttribute("currentUser");
+		
 		return dao.getAllReimbursments();
 	}
 
 	@Override
 	public DBReimbursments getReimbursmentsById(HttpServletRequest req, HttpServletResponse resp) {
+		final String reimbursmentId = req.getParameter("reimbursmentId");
 		
-		return null;
+		
+		return dao.getReimbursmentsById(Integer.valueOf(reimbursmentId));
 	}
 
 
@@ -40,8 +44,10 @@ public class ReimbursmentsServiceImpl implements ReimbursmentsService {
 			return dao.createReimbursments(Reimbursments);
 			}
 			catch (IOException e) {
+				System.out.println("Alex was right");
 				return null;
 			}
+		
 	}
 
 }

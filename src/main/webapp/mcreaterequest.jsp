@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
-    <title>Employee Info</title>
+    <title>Manager Request</title>
     <meta name="author" content="Matt Cowin" />
 </head>
 <body>
@@ -24,42 +26,38 @@
             <li><a href="#">About Us</a></li>
             <li><a href="#">Contact HR</a></li>
         </ul>
-      <a href="./index.html" style="float: right; padding-top: 15px; ">
+      <form method="get" action="./invalidateSession"><a  href="./index.html" style="float: right; padding-top: 15px; ">
           Log Out<span class="glyphicon glyphicon-user"></span>
-      </a>
+      </a></form>
   </div>
 </nav>
     <br/>
 
-    <div class="emp" id="emp1">    
+<div class="emp" id="emp1">    
         <nav class="navbar navbar">
             <div class="container-fluid">
                 <ul class="nav navbar-nav" style="text-align: center;">
-                <li><a href="./managerhome.html">Home</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="selectBox">Projects
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Hunter Road Medical Center</a></li>
-                    <li><a href="#">Walgreens</a></li>
-                    <li><a href="#">Soap N Suds</a></li>
-                </ul>
-                </li>
-                <li><a href="./managerreimbursments.html">Reimbursements</a></li>
-                <li><a href="./createrequest.html">Create Request</a></li>
+                <li><a href="./managerhome.jsp">Home</a></li>
+                <li><a href="./managerreimbursments.jsp">Reimbursements</a></li>
+                <li><a href="./viewallreimbursements.jsp">View All Reimbursements</a></li>
+                <li><a href="./mcreaterequest.jsp">Create Request</a></li>
                 </ul>
             </div>
         </nav>
-        <form action="" class="empform">
-  			<h1>Gibby Hart</h1>
-  			<h6>Address</h6>
-  			
-
-  
-</form>
     </div>
-   
-   <script src="OnlyEpic.js"></script>
+    <form action="ManagerRequest" class="nrequest">
+        <select class="type" name="reimbursmentType">Please Select Type
+            <option>Travel</option>
+            <option>Gas</option>
+            <option>Food</option>
+            <option>Supplies</option>
+            <option>Misc</option>
+        </select><br/>
+        <input type="number" placeholder="Enter Amount" name="amount"/><br/>
+        <input type="text" placeholder="Enter Reason" name="reason"/><br/>
+        <input type="number" placeholder="Enter Employee ID" name="employeeId"/><br/>
+        <button class="btn" id="Submit">Submit</button>
+    </form>
     <script src="onlyepic1.js"></script>
 </body>
 

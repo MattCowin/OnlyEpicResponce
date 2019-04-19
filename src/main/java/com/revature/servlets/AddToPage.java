@@ -3,7 +3,6 @@ package com.revature.servlets;
 
 import java.util.Collections;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +20,7 @@ public class AddToPage {
 			final String uri = req.getRequestURI().replace("/OnlyEpicRequest/api", "");
 			System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
 			switch(uri) {
-			case "/reimbursments":
+			case "/Reimbursments":
 				return reimbursmentsService.getAllReimbursments(req, resp);
 			default:
 				return Collections.singletonMap("message", "Not yet implemented. Stuck at AddToPage process");
@@ -32,7 +31,7 @@ public class AddToPage {
 			final String uri = req.getRequestURI().replace("/OnlyEpicRequest/api", "");
 			System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
 			switch(uri) {
-			case "/reimbursments":
+			case "/PutRequest":
 				return reimbursmentsService.createReimbursments(req, resp);
 			default:
 				return Collections.singletonMap("message", "Not yet implemented. Stuck at AddToPage processPost");

@@ -12,11 +12,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.DBTables.Employees;
-import com.revature.DBTables.Position;
-import com.revature.DBTables.PositionList;
-import com.revature.DBTables.Users;
+
+import com.revature.dao.Employees;
 import com.revature.dao.ReimbursementsRequest;
+import com.revature.dao.Users;
 
 public class JDBCConnection {
 
