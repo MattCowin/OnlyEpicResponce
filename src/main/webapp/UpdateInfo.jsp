@@ -1,9 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@page import="com.revature.dao.getInfo"%>
-<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
-<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
-<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
-<%@ page import="java.sql.*" %>
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -17,7 +14,7 @@
     <meta name="author" content="Matt Cowin" />
 </head>
 <body>
-  <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
         <div class="navbar-header" style="margin: 0px; padding: 0px;">
             <a class="navbar-brand" href="https://www.onlyepic.com/">
@@ -42,23 +39,21 @@
                 <li><a href="./userhome.jsp">Home</a></li>
                 <li><a href="./reimbursments.jsp">Reimbursements</a></li>
                 <li><a href="./createrequest.jsp">Create Request</a></li>
-                <li><a href="./UpdateInfo.jsp">Update Personnel Info</a></li>
                 </ul>
             </div>
         </nav>
-     </div>
-        <form action="" class="empform">
-        	
-  			<h1><%=session.getAttribute("currentUser") %></h1>
-  			
-  			
-			
-  
-</form>
-   
-   
-   
-    
+    </div>
+    <form action="/UpdateEmpInfo" method="post" class="updaterequest">
+        <input type="text" placeholder="Email" name="Email"/><br/><Br>
+        <input type="number" placeholder="MOBILE" name="MOBILE"/><br/><br>
+        <input type="text" placeholder="ADDRESS" name="ADDRESS"/><br/><br>
+        <input type="text" placeholder="CITY" name="CITY"/><br/><Br>
+        <input type="text" placeholder="STATE" name="STATE"/><br/><br>
+        <input type="text" placeholder="ZIP Code" name="ZIP"/><br/><br>
+        <button class="btn" id="SubmitRequest">Submit</button>
+    </form>
+
+    <script src="onlyepic1.js"></script>
 </body>
 
 </html>

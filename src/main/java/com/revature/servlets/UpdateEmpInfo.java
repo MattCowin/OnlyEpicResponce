@@ -11,31 +11,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class InsertReimbursement
+ * Servlet implementation class UpdateEpmInfo
  */
-public class InsertReimbursement extends HttpServlet {
+public class UpdateEmpInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertReimbursement() {
+    public UpdateEmpInfo() {
         super();
         // TODO Auto-generated constructor stub
     }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(Connection conn = JDBCConnection.getDatarFromDB()){
-			PreparedStatement stmt = conn.prepareStatement("INSERT INTO REIMBURSEMENTS(REIMBURSEMENT_TYPE,AMOUNT,REASON,EMPLOYEE_ID,STATUS) VALUES(?,?,?,?,?)");
+			PreparedStatement stmt = conn.prepareStatement("UPDATE EMPLOYEES SET EMAIL=?, MOBILE=?, ADDRESS=?, CITY=?, STATE=?, COUNTRY_CODE=? WHERE EMAIL=?");
 		
-			stmt.setString(1, request.getParameter("reimbursmentType"));
-			stmt.setFloat(2,  Float.valueOf(request.getParameter("amount")));
-			stmt.setString(3, request.getParameter("reason"));
-			stmt.setInt(4, Integer.valueOf(request.getParameter("employeeId")));
-			stmt.setString(5, "Pending");
+			stmt.setString(1, request.getParameter("Email"));
+			stmt.setInt(2,  Integer.valueOf(request.getParameter("MOBILE")));
+			stmt.setString(3, request.getParameter("ADDRESS"));
+			stmt.setString(3, request.getParameter("CITY"));
+			stmt.setString(3, request.getParameter("STATE"));
+			stmt.setString(3, request.getParameter("ZIP"));			
 			
 			stmt.executeUpdate();
 			stmt.close();

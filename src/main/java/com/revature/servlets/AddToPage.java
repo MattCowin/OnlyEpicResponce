@@ -17,11 +17,12 @@ public class AddToPage {
 		}
 		
 		public static Object process(HttpServletRequest req, HttpServletResponse resp) {
-			final String uri = req.getRequestURI().replace("/OnlyEpicRequest/api", "");
+			final String uri = req.getRequestURI().replace("/OnlyEpicRequest/ ", "");
 			System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
 			switch(uri) {
-			case "/Reimbursments":
-				return reimbursmentsService.getAllReimbursments(req, resp);
+			case "/MakeRequest":{
+				System.out.println("John found it");
+				return reimbursmentsService.getAllReimbursments(req, resp);}
 			default:
 				return Collections.singletonMap("message", "Not yet implemented. Stuck at AddToPage process");
 			}

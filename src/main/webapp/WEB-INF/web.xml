@@ -119,4 +119,24 @@
     <servlet-name>InsertReimbursement</servlet-name>
     <url-pattern>/InsertReimbursement</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetEmployeeInfo</display-name>
+    <servlet-name>GetEmployeeInfo</servlet-name>
+    <servlet-class>com.revature.servlets.GetEmployeeInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetEmployeeInfo</servlet-name>
+    <url-pattern>/GetEmployeeInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateEpmInfo</display-name>
+    <servlet-name>UpdateEpmInfo</servlet-name>
+    <servlet-class>com.revature.servlets.UpdateEpmInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateEpmInfo</servlet-name>
+    <url-pattern>/UpdateEpmInfo</url-pattern>
+  </servlet-mapping>
 </web-app>

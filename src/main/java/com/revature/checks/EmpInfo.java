@@ -10,7 +10,7 @@ import com.revature.servlets.JDBCConnection;
 
 public class EmpInfo {
 
-	private static void getEmpInfo()  {
+	public static void getEmpInfo()  {
 
 
 		try {

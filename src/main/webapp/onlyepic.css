@@ -64,7 +64,7 @@ h1{
 .nrequest{
     margin: auto;
     width: 60%;
-    background-color: rgb(232, 233, 234);
+    background-color: #d8d8d8232233234;
     text-align: center;
 }
 
@@ -79,3 +79,9 @@ h1{
 	height:80%;
 }
 
+.updaterequest{
+    margin: auto;
+    width: 60%;
+    background-color: #d8d8d8232233234;
+    text-align: center;
+}
