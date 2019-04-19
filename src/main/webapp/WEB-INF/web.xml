@@ -52,15 +52,7 @@
     <servlet-name>InvailedSession</servlet-name>
     <url-pattern>/InvailedSession</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>AddToPage</servlet-name>
-    <servlet-class>com.revature.servlets.AddToPage</servlet-class>
-    <load-on-startup>0</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddToPage</servlet-name>
-    <url-pattern>/OnlyEpicRequest/*</url-pattern>
-  </servlet-mapping>
+
   <error-page>
     <error-code>404</error-code>
     <location>/somethingwentwrong.html</location>

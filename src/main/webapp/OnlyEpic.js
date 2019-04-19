@@ -1,5 +1,5 @@
 window.onload = () => {
-	getAllReimbursements();
+	document.getElementById("fetch").addEventListener("click", getAllReimbursements);
 }
 
 function backTo(){

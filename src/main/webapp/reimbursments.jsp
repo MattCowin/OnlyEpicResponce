@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<%@page import="java.util.ArrayList"%>
 <head>
     <meta charset="UTF-8"/>
     <link type="text/css" rel="stylesheet" href="onlyepic.css"/>
@@ -43,7 +44,9 @@
             </div>
         </nav>
     </div>
+
     <div class="tinfo">
+    	<button class="btn" id="fetch" onclick="fetch">Submit</button> 
         <table class="table" id="ReimbursementsTable">
             <thead>
                 <tr>
@@ -54,6 +57,12 @@
                     <th id="sub">SUBMITTED BY</th>                
                     <th id="status">STATUS</th>
                 </tr>
+                <tr value=""></tr>
+                <tr value=""></tr>
+                <tr value=""></tr>
+                <tr value=""></tr>
+                <tr value=""></tr>
+                <tr value=""></tr>
             </thead>
             <tbody>
                 

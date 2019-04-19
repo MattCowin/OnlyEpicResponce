@@ -43,7 +43,7 @@
             </div>
         </nav>
     </div>
-    <form action="/UpdateEmpInfo" method="post" class="updaterequest">
+    <form action="./UpdateEmpInfo" method="post" class="updaterequest">
         <input type="text" placeholder="Email" name="Email"/><br/><Br>
         <input type="number" placeholder="MOBILE" name="MOBILE"/><br/><br>
         <input type="text" placeholder="ADDRESS" name="ADDRESS"/><br/><br>
