@@ -17,7 +17,7 @@ const getAllReimbursements = () => {
 			populateReimbursementsTable(json);
 		}
 	};
-	xhr.open("GET", "http://localhost:8088/OnlyEpicRequest/MakeRequest");
+	xhr.open("GET", "http://localhost:8088/OnlyEpicRequest/viewmyreimbursments");
 	xhr.send();
 }
 

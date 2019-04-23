@@ -7,7 +7,7 @@ import org.junit.Test;
 import com.revature.dao.ReimbursementsRequest;
 import com.revature.model.DBReimbursments;
 
-public class ConnectionFactoryTest {
+public class JDBCConnectionTest {
 
 	private ReimbursementsRequest eReqDao = new ReimbursementsRequest();
 	

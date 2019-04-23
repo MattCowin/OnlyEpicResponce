@@ -22,9 +22,11 @@
              margin-top: -20px; margin-left: -20px; margin-right: -20px;"/></a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact HR</a></li>
+            <li><a href="./managerhome.jsp">Home</a></li>
+            <li><a href="https://www.onlyepic.com/">About Us</a></li>
+            <li><a href="./managerreimbursments.jsp">Reimbursements</a></li>
+            <li class="active"><a href="./viewallreimbursements.jsp">View All Reimbursements</a></li>
+            <li><a href="./mcreaterequest.jsp">Create Request</a></li>
         </ul>
       <form method="get" action="./invalidateSession"><a  href="./index.html" style="float: right; padding-top: 15px; ">
           Log Out<span class="glyphicon glyphicon-user"></span>
@@ -33,7 +35,7 @@
 </nav>
     <br/>
 
-    <div class="emp" id="emp1">    
+   <!--  <div class="emp" id="emp1">    
         <nav class="navbar navbar">
             <div class="container-fluid">
                 <ul class="nav navbar-nav" style="text-align: center;">
@@ -44,21 +46,41 @@
                 </ul>
             </div>
         </nav>
+    </div> -->
+    <div class="tinfo">
+    	<button></button>
+        <table class="table" id="AllReimbursementsTable">
+            <thead>
+                <tr>
+                    <th id="id">ID</th>
+                    <th id="type">TYPE</th>
+                    <th id="amount">AMOUNT</th>
+                    <th id="reason">REASON</th>
+                    <th id="sub">SUBMITTED BY
+                        <select>
+                            <option></option>
+                            <option>Pending</option>
+                            <option>Approved</option>
+                            <option>Denied</option>
+                        </select>
+                    </th>                
+                    <th id="app">APPROVED BY</th>
+                    <th id="status">STATUS
+                        <select>
+                            <option></option>
+                            <option>Pending</option>
+                            <option>Approved</option>
+                            <option>Denied</option>
+                        </select>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
     </div>
-    <form action="" class="nrequest">
-        <select class="type" name="reimbursmentType">Please Select Type
-            <option>Travel</option>
-            <option>Gas</option>
-            <option>Food</option>
-            <option>Supplies</option>
-            <option>Misc</option>
-        </select><br/>
-        <input type="number" placeholder="Enter Amount" name="amount"/><br/>
-        <input type="text" placeholder="Enter Reason" name="reason"/><br/>
-        <input type="number" placeholder="Enter Employee ID" name="employeeId"/><br/>
-        <button class="btn" id="Submit">Submit</button>
-    </form>
-    <script src="onlyepic1.js"></script>
+    <script src="OnlyEpic.js"></script>
 </body>
 
 </html>

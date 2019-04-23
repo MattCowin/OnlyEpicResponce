@@ -2,6 +2,7 @@ package com.revature.servlets;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,12 +44,15 @@ public class LoginServlet1 extends HttpServlet {
 	    if(Validate.checkUser(username, password)){
 	        if(MCheck.checkManager(username)) {
 	        	req.getSession().setAttribute("currentUser", username);
-	        	resp.sendRedirect("./managerhome.jsp");
-	        	 
+	        	RequestDispatcher dispatcher = getServletContext()
+	        		      .getRequestDispatcher("/managerhome.jsp");
+	        		    dispatcher.forward(req, resp);
 	        }
 	        else {
 	        	req.getSession().setAttribute("currentUser", username);
-	        	resp.sendRedirect("./userhome.jsp");
+	        	RequestDispatcher dispatcher = getServletContext()
+	        		      .getRequestDispatcher("/userhome.jsp");
+	        		    dispatcher.forward(req, resp);
 	        }
 	    }
 	    else{

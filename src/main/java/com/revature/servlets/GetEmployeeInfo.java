@@ -39,13 +39,4 @@ public class GetEmployeeInfo extends HttpServlet {
 		resp.getOutputStream().write(mapper.writeValueAsBytes(AddToPage.process(req, resp)));
 	}
 	
-	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(req, resp);
-	}
-
 }

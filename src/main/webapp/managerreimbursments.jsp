@@ -22,9 +22,11 @@
              margin-top: -20px; margin-left: -20px; margin-right: -20px;"/></a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact HR</a></li>
+            <li><a href="./managerhome.jsp">Home</a></li>
+            <li><a href="https://www.onlyepic.com/">About Us</a></li>
+            <li class="active"><a href="./managerreimbursments.jsp">Reimbursements</a></li>
+            <li><a href="./viewallreimbursements.jsp">View All Reimbursements</a></li>
+            <li><a href="./mcreaterequest.jsp">Create Request</a></li>
         </ul>
       <form method="get" action="./invalidateSession"><a  href="./index.html" style="float: right; padding-top: 15px; ">
           Log Out<span class="glyphicon glyphicon-user"></span>
@@ -33,7 +35,7 @@
 </nav>
     <br/>
 
- <div class="emp" id="emp1">    
+ <!-- <div class="emp" id="emp1">    
         <nav class="navbar navbar">
             <div class="container-fluid">
                 <ul class="nav navbar-nav" style="text-align: center;">
@@ -44,9 +46,9 @@
                 </ul>
             </div>
         </nav>
-    </div>
+    </div>-->
     <div class="tinfo">
-        <table class="table" id="ReimbursementsTable">
+        <table class="table" id="MyReimbursementsTable">
             <thead>
                 <tr>
                     <th id="id">ID</th>

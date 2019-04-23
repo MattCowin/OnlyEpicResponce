@@ -16,7 +16,7 @@ import oracle.sql.STRUCT;
 
 public class ReimbursementsRequest implements DBReimbursmentsDAO{
 
-		private static final String SQL = "SELECT * FROM REIMBURSEMENTS";
+		
 		
 		public static void getData() throws ClassNotFoundException{
 			
@@ -27,8 +27,8 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 		public List<DBReimbursments> getAllReimbursments(){
 			List<DBReimbursments> Reimbursments = new ArrayList<>();
 			try (Connection conn = JDBCConnection.getDatarFromDB()){
-	            Statement stmt = conn.createStatement();
-	            ResultSet rs = stmt.executeQuery(SQL);
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS");
+	            ResultSet rs = stmt.executeQuery();
 	            while (rs.next()) {
 	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
 	          // System.out.println(rs.getString("REIMBURSEMENT_TYPE"));
@@ -39,7 +39,7 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 	            catch (SQLException e) {
 		            e.printStackTrace();
 		        }
-		       return null;        
+		       return Reimbursments;        
 		}
 		
 		@Override
@@ -116,8 +116,8 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 		public List<DBReimbursments> getAllReimbursments(String username) {
 			List<DBReimbursments> Reimbursments = new ArrayList<>();
 			try (Connection conn = JDBCConnection.getDatarFromDB()){
-	            Statement stmt = conn.createStatement();
-	            ResultSet rs = stmt.executeQuery(SQL);
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS WHERE EMAIL=?");
+	            ResultSet rs = stmt.executeQuery();
 	            while (rs.next()) {
 	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
 	           System.out.println(rs.getString("REIMBURSEMENT_TYPE"));
@@ -129,5 +129,39 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 		        }
 		       return Reimbursments;       
 		}
+
+
+//		try {
+//					 Connection conn = JDBCConnection.getDatarFromDB();
+//				        PreparedStatement ps = conn.prepareStatement
+//				                            ("SELECT * FROM EMPLOYEES WHERE EMAIL=?");
+//				        ResultSet rs = ps.executeQuery();
+//		
+//				        while (rs.next()) {
+//				        	String employeeId = rs.getString("EMPLOYEE_ID");
+//				        	String firstName = rs.getString("FIRST_NAME");
+//				        	String lastName = rs.getString("LAST_NAME");
+//				        	String email = rs.getString("EMAIL");
+//				        	String mobile = rs.getString("MOBILE");
+//				        	String address = rs.getString("ADDRESS");
+//				        	String city = rs.getString("CITY");
+//				        	String state = rs.getString("STATE");
+//				        	String countryCode = rs.getString("COUNTRY_CODE");
+//				        	String salary = rs.getString("SALARY");
+//				        	String positionId = rs.getString("POSITION_ID");
+//		
+//						System.out.println("userid : " + employeeId);
+//						System.out.println("username : " + firstName);
+//						System.out.println("userid : " + firstName);
+//						System.out.println("username : " + lastName);
+//						
+//		
+//					}
+//		
+//				} catch (SQLException e) {
+//		
+//					System.out.println(e.getMessage());
+//		
+//				}
 
 }
