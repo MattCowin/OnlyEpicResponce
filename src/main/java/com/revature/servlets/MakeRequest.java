@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.checks.EmpInfo;
+import com.revature.dao.ReimbursementsRequest;
 
 
 public class MakeRequest extends HttpServlet {
@@ -26,7 +27,6 @@ public class MakeRequest extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		System.out.println("Entering MakeRequest.doGet");
 		resp.setContentType("application/json");
 		resp.getOutputStream().write(mapper.writeValueAsBytes(AddToPage.process(req, resp)));

@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * Servlet implementation class GetRequests
  */
 public class GetRequests extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private final ObjectMapper mapper = new ObjectMapper(); 
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -36,7 +38,7 @@ public class GetRequests extends HttpServlet {
 			PrintWriter  pw = resp.getWriter();
 			System.out.println("getting connection");
 		try(Connection conn = JDBCConnection.getDatarFromDB()){
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS WHERE EMPLOYEE_ID=?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS");
 			ResultSet rs = (ResultSet) ps.executeQuery();	
 			String str = "<table class='table' id='ReimbursementsTable'><thead><tr><th>ID</th><th>TYPE</th><th>AMOUNT</th><th>REASON</th><th>SUBMITTED BY</th><th>STATUS</th></tr></thead><tbody>";
 			System.out.println("attempting to populate a table");
@@ -53,12 +55,5 @@ public class GetRequests extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
 }

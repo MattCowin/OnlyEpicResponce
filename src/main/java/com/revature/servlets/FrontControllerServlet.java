@@ -28,7 +28,7 @@ public class FrontControllerServlet{
 		final String uri = req.getRequestURI().replace("/OnlyEpicRequest/", "");
 		System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
 		switch(uri) {
-		case "/Reimbursments":
+		case "/GetRequests":
 			return reimbursmentsService.getAllReimbursments(req, resp);
 		default:
 			return Collections.singletonMap("message", "Not yet implemented. Stuck at FrontController process");
