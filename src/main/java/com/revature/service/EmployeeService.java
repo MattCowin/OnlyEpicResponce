@@ -9,5 +9,5 @@ import com.revature.model.DBEmployees;
 
 public interface EmployeeService{
 	
-	List<DBEmployees> getAllEmployees(HttpServletRequest req, HttpServletResponse resp);
+	Object getAllEmployees(HttpServletRequest req, HttpServletResponse resp);
 }

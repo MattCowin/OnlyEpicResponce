@@ -46,7 +46,7 @@ public class Employees implements EmployeesDAO{
 			}			
 		}
 		@Override
-	    public List<DBEmployees> getAllEmployees() {
+	    public  List<DBEmployees> getAllEmployees() {
 	        List<DBEmployees> emps = new ArrayList();
 	        try (Connection conn = JDBCConnection.getDatarFromDB()){
 	            Statement stmt = conn.createStatement();
@@ -54,7 +54,7 @@ public class Employees implements EmployeesDAO{
 	            while (rs.next()) {
 	                emps.add(new DBEmployees(rs.getInt("employee_id"), rs.getString("first_name"), rs.getString("last_name"),
 	                        rs.getString("email"), rs.getInt("mobile"), rs.getString("address"), rs.getString("city"), rs.getString("state"),
-	                        rs.getString("country_code"), rs.getInt("salary"), rs.getInt("position_id"), rs.getInt("username"), rs.getInt("password");
+	                        rs.getString("country_code"), rs.getInt("salary"), rs.getInt("position_id"), rs.getString("username"), rs.getString("password")));
 	            }
 	        } catch (SQLException e) {
 	            System.err.println(e);
@@ -105,21 +105,41 @@ public class Employees implements EmployeesDAO{
 			return 0;
 		}
 		@Override
-		public List<DBEmployees> getAllEmployees(String username) {
-			List<DBEmployees> emps = new ArrayList<>();
-			try(Connection conn= JDBCConnection.getDatarFromDB()){
-				PreparedStatement stmt =conn.prepareStatement("select * from employees where username=?");
-				stmt.setString(1, username);
+		public Object getAllEmployees(String username) {
+			try {
+				Connection conn = JDBCConnection.getDatarFromDB();
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE USERNAME=?");
 				ResultSet rs = stmt.executeQuery();
-				while (rs.next()) {
-					emps.add(new DBEmployees(rs.getInt("employee_id"), rs.getString("first_name"), rs.getString("last_name"),
-	                        rs.getString("email"), rs.getInt("mobile"), rs.getString("address"), rs.getString("city"), rs.getString("state"),
-	                        rs.getString("country_code"), rs.getInt("salary"), rs.getInt("position_id")));
-		            }
-			}catch(SQLException e) {
+				
+				
+		        Integer employeeId = rs.getInt("EMPLOYEE_ID");
+				String firstName = rs.getString("FIRST_NAME");
+				String lastName = rs.getString("LAST_NAME");
+				String email = rs.getString("EMAIL");
+				Integer mobile = rs.getInt("MOBILE");
+				String address = rs.getString("ADDRESS");
+				String city = rs.getString("CITY");
+				String state = rs.getString("STATE");
+				String countryCode = rs.getString("COUNTRY_CODE");
+				Integer salary = rs.getInt("SALARY");
+				Integer positionId = rs.getInt("POSITION_ID");
+				DBEmployees emp = new DBEmployees();
+				emp.setEmployeeId(employeeId);
+				emp.setFirstName(firstName);
+				emp.setLastName(lastName);
+				emp.setEmail(email);
+				emp.setMobile(mobile);
+				emp.setAddress(address);
+				emp.setCity(city);
+				emp.setState(state);
+				emp.setCountryCode(countryCode);
+				emp.setSalary(salary);
+				emp.setPositionId(positionId);
+			} catch (SQLException e) {
+				System.err.println(e);
 				e.printStackTrace();
 			}
-			 return emps;
+			 return null;
 		}
 		
 		

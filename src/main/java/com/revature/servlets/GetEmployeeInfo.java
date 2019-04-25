@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +40,7 @@ public class GetEmployeeInfo extends HttpServlet {
 		resp.setContentType("text/html");
 		System.out.println("getting printwriter");
 		PrintWriter  pw = resp.getWriter();
+		RequestDispatcher dispatcher = req.getRequestDispatcher("userhome.jsp");
 		try (Connection conn = JDBCConnection.getDatarFromDB()){
 			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES");
             ResultSet rs = stmt.executeQuery();
@@ -65,6 +67,8 @@ public class GetEmployeeInfo extends HttpServlet {
             	emp.setState(state);
             	emp.setCountryCode(countryCode);
             	emp.setSalary(salary);
+            	
+            	dispatcher.forward( req, resp);
             }
 		}
             catch(SQLException e){

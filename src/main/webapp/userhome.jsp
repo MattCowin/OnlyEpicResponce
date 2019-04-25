@@ -54,10 +54,10 @@
             </div>
         </nav>
      </div>-->
-        <form action="" class="empform">
+        <form action="./GetEmployeeInfo" class="empform">
         	
   			<h1><%=session.getAttribute("currentUser") %></h1>
-  			<h1 name="firstName"></h1>
+  			<h1 ><%=request.getAttribute("firstName") %></h1>
   			<p><%=request.getAttribute("firstName")%></p>
   			
 			
