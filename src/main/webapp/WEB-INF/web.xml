@@ -23,15 +23,7 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-  <filter>
-    <display-name>AuthenticationFilter</display-name>
-    <filter-name>AuthenticationFilter</filter-name>
-    <filter-class>com.revature.filters.AuthenticationFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>AuthenticationFilter</filter-name>
-    <url-pattern>/Users/userhome.html</url-pattern>
-  </filter-mapping>
+  
   <servlet>
     <description></description>
     <display-name>JSession</display-name>
@@ -52,7 +44,6 @@
     <servlet-name>InvailedSession</servlet-name>
     <url-pattern>/InvailedSession</url-pattern>
   </servlet-mapping>
-
   <error-page>
     <error-code>404</error-code>
     <location>/somethingwentwrong.html</location>
@@ -130,5 +121,15 @@
   <servlet-mapping>
     <servlet-name>UpdateEpmInfo</servlet-name>
     <url-pattern>/UpdateEpmInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PlaceEmployeeInfo</display-name>
+    <servlet-name>PlaceEmployeeInfo</servlet-name>
+    <servlet-class>com.revature.servlets.PlaceEmployeeInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PlaceEmployeeInfo</servlet-name>
+    <url-pattern>/employeeinfo</url-pattern>
   </servlet-mapping>
 </web-app>

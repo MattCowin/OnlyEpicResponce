@@ -21,8 +21,7 @@ public class UpdateEmpInfo extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public UpdateEmpInfo() {
-        super();
-        // TODO Auto-generated constructor stub
+        JDBCConnection.getDatarFromDB();
     }
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

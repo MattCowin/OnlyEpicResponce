@@ -23,7 +23,7 @@ public class Home {
 		
 		try {
 			Users.getUserData();
-			
+		
 						
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("Failed to get JDBC Connection");

@@ -40,6 +40,11 @@
          <artifactId>ojdbc7</artifactId>
          <version>12.1.0</version>
      </dependency>
+     <dependency>
+     	<groupId>org.glassfish.web</groupId>
+     	<artifactId>javax.servlet.jsp.jstl</artifactId>
+     	<version>1.2.4</version>
+     </dependency>
  </dependencies>
 
   

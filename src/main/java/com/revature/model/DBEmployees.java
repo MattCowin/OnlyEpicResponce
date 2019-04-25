@@ -28,7 +28,7 @@ public class DBEmployees{
 	public DBEmployees(int employeetId, String firstName, String lastName, String email, int mobile, String address,
 			String city, String state, String countryCode, int salary, int positionId) {
 		super();
-		this.employeeId = employeetId;
+		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -42,10 +42,10 @@ public class DBEmployees{
 		
 	}
 
-	public int getEmployeetId() {
+	public int getEmployeeId() {
 		return employeeId;
 	}
-	public void setEmployeetId(int employeetId) {
+	public void setEmployeeId(int employeetId) {
 		this.employeeId = employeetId;
 	}
 	public String getFirstName() {

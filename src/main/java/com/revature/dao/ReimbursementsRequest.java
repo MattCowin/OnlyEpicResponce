@@ -30,7 +30,9 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS");
 	            ResultSet rs = stmt.executeQuery();
 	            while (rs.next()) {
-	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
+	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), 
+	            			rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), 
+	            			rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
 	          // System.out.println(rs.getString("REIMBURSEMENT_TYPE"));
 	            	
 	            }

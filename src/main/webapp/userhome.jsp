@@ -4,6 +4,10 @@
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 <%@ page import="java.sql.*" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="com.revature.checks.DisplayEmpInfo" %>
+<%@ page import="com.revature.servlets.GetEmployeeInfo" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -53,7 +57,7 @@
         <form action="" class="empform">
         	
   			<h1><%=session.getAttribute("currentUser") %></h1>
-  			
+  			<p>${ employeeId}</p>
   			
 			
   

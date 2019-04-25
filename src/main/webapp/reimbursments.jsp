@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.revature.servlets.GetRequests"%>
 <head>
     <meta charset="UTF-8"/>
     <link type="text/css" rel="stylesheet" href="onlyepic.css"/>
@@ -51,27 +52,7 @@
 
     <div class="tinfo">
     	<button class="btn" id="fetch" onclick="fetch">Submit</button> 
-        <table class="table" id="ReimbursementsTable">
-            <thead>
-                <tr>
-                    <th id="id">ID</th>
-                    <th id="type">TYPE</th>
-                    <th id="amount">AMOUNT</th>
-                    <th id="reason">REASON</th>
-                    <th id="sub">SUBMITTED BY</th>                
-                    <th id="status">STATUS</th>
-                </tr>
-                <tr name=""></tr>
-                <tr name=""></tr>
-                <tr name=""></tr>
-                <tr name=""></tr>
-                <tr name=""></tr>
-                <tr name=""></tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
+        
     </div>
     <script src="OnlyEpic.js"></script>
   

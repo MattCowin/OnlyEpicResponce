@@ -6,6 +6,7 @@ import java.util.Collections;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.revature.service.EmployeeService;
 import com.revature.service.ReimbursmentsService;
 import com.revature.service.ReimbursmentsServiceImpl;
 
@@ -20,9 +21,11 @@ public class AddToPage {
 			final String uri = req.getRequestURI().replace("/OnlyEpicRequest/ ", "");
 			System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
 			switch(uri) {
-			case "/viewmyreimbursments":{
+			case "/GetRequests":{
 				System.out.println("John found it");
 				return reimbursmentsService.getAllReimbursments(req, resp);}
+			
+				
 			default:
 				return Collections.singletonMap("message", "Not yet implemented. Stuck at AddToPage process");
 			}

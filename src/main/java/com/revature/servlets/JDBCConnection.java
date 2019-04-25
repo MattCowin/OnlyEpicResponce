@@ -19,7 +19,7 @@ import com.revature.dao.Users;
 
 public class JDBCConnection {
 
-	private static final Properties props = getJdbcProperties();
+//	private static final Properties props = getJdbcProperties();
 	
 //	public static void main(String[] args) {
 //		System.out.println(JDBCConnection.getDatarFromDB());
@@ -29,22 +29,21 @@ public class JDBCConnection {
 		
 
 		try {
-			return DriverManager.getConnection(props.getProperty("jdbc.url"), 
-                    props.getProperty("jdbc.username"), 
-                    props.getProperty("jdbc.password"));			
+			return DriverManager.getConnection(System.getenv("JDBC_URL"), 
+					System.getenv("JDBC_USER"), System.getenv("JDBC_PASSWORD"));		
 	    }
 		 catch (SQLException e) {
 			 throw new RuntimeException("Failed to get JDBC Connection");
 			}
 	}	
-	private static Properties getJdbcProperties() {
-        Properties props = new Properties();
-        try {
-            //Gets connection to src/main/resources
-            props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to load application.properties!");
-        }
-        return props;
-	}
+//	private static Properties getJdbcProperties() {
+//        Properties props = new Properties();
+//        try {
+//            //Gets connection to src/main/resources
+//            props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
+//        } catch (IOException e) {
+//            throw new RuntimeException("Failed to load application.properties!");
+//        }
+//        return props;
+//	}
 }
