@@ -80,7 +80,7 @@
             </tbody>
         </table>
     </div>
-    <script src="OnlyEpic.js"></script>
+    <script src="./Scripts/OnlyEpic.js"></script>
 </body>
 
 </html>

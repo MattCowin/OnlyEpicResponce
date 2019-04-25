@@ -1,7 +1,7 @@
 package com.revature.servlets;
 
 import java.io.IOException;
-
+import java.util.Collections;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +14,7 @@ import com.revature.checks.EmpInfo;
 import com.revature.dao.ReimbursementsRequest;
 
 
+
 public class MakeRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final ObjectMapper mapper = new ObjectMapper();
@@ -24,24 +25,13 @@ public class MakeRequest extends HttpServlet {
        
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Entering MakeRequest.doGet");
-		resp.setContentType("application/json");
-		resp.getOutputStream().write(mapper.writeValueAsBytes(AddToPage.process(req, resp)));
-		System.out.println("Response sent successfully MakeRequest doGet!");
-//		req.getRequestDispatcher("http://localhost:8088/OnlyEpicRequest/api/Reimbursments").forward(req, resp);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		AddToPage.process(request, response);
+		response.setContentType("application/json");
 	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Entering MakeRequestServlet.doPost");
-		resp.setContentType("application/json");
-		resp.getOutputStream().write(mapper.writeValueAsBytes(AddToPage.processPost(req, resp)));
-		System.out.println("Response sent successfully MakeRequest doPost!");
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }

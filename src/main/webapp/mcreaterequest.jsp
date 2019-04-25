@@ -47,7 +47,7 @@
             </div>
         </nav>
     </div>-->
-    <form action="ManagerRequest" class="nrequest">
+    <form action="./InsertReimbursement" class="nrequest">
         <select class="type" name="reimbursmentType">Please Select Type
             <option>Travel</option>
             <option>Gas</option>
@@ -60,7 +60,7 @@
         <input type="number" placeholder="Enter Employee ID" name="employeeId"/><br/>
         <button class="btn" id="Submit">Submit</button>
     </form>
-    <script src="onlyepic1.js"></script>
+    <script src="./Scripts/onlyepic1.js"></script>
 </body>
 
 </html>

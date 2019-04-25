@@ -32,7 +32,7 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 	            while (rs.next()) {
 	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), 
 	            			rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), 
-	            			rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
+	            			rs.getInt("EMPLOYEE_ID"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
 	          // System.out.println(rs.getString("REIMBURSEMENT_TYPE"));
 	            	
 	            }
@@ -52,7 +52,7 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 				stmt.setInt(1, employee_id);
 				ResultSet rs = stmt.executeQuery();
 				while (rs.next()){
-					reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
+					reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("EMPLOYEE_ID"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
 				
 				
 				
@@ -118,18 +118,43 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 		public List<DBReimbursments> getAllReimbursments(String username) {
 			List<DBReimbursments> Reimbursments = new ArrayList<>();
 			try (Connection conn = JDBCConnection.getDatarFromDB()){
-				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS WHERE EMAIL=?");
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS WHERE EMPLOYEE_ID=?");
+				stmt.setString(1, username);
 	            ResultSet rs = stmt.executeQuery();
 	            while (rs.next()) {
-	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employee_id"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
+	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), rs.getString("REIMBURSEMENT_TYPE"), rs.getFloat("AMOUNT"), rs.getString("REASON"), rs.getInt("employeeId"), rs.getInt("APPROVED_BY"), rs.getString("STATUS")));
 	           System.out.println(rs.getString("REIMBURSEMENT_TYPE"));
 	            }
 	            return Reimbursments;
 	        }
 	            catch (SQLException e) {
-		            e.printStackTrace();
+	            	System.err.println("SQL State: " + e.getSQLState());
+	    			System.err.println("Error Code: " + e.getErrorCode());
+	    			throw new RuntimeException("Failed to get all Reimbursements");
 		        }
-		       return Reimbursments;       
+		            
+		}
+
+
+		@Override
+		public DBReimbursments createReimbursments(DBReimbursments Reimbursments, String username) {
+			try (Connection conn = JDBCConnection.getDatarFromDB()){
+				PreparedStatement stmt = conn.prepareStatement("INSERT INTO REIMBURSEMENTS(REIMBURSEMENT_TYPE,AMOUNT,REASON,EMPLOYEE_ID,STATUS) VALUES(?,?,?,?,?)");
+				stmt.setString(1, Reimbursments.getReimbursmentType());
+				stmt.setFloat(2,  Reimbursments.getAmount());
+				stmt.setString(3, Reimbursments.getReason());
+				stmt.setInt(4, Reimbursments.getEmployeeId());
+				stmt.setString(5, "Pending");
+				if(stmt.executeUpdate() ==1)
+					return Reimbursments;
+				else
+					return null;
+			}
+			catch(SQLException e) {
+				System.err.println("SQL State: " + e.getSQLState());
+				System.err.println("Error Code: " + e.getErrorCode());
+				throw new RuntimeException("Failed to get all Reimbursements");
+			}
 		}
 
 

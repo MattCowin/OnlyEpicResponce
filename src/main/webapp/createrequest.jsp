@@ -63,7 +63,7 @@
         <button class="btn" id="SubmitRequest">Submit</button>
     </form>
     
-    <script src="onlyepic1.js"></script>
+    <script src="./Scripts/onlyepic1.js"></script>
 </body>
 
 </html>

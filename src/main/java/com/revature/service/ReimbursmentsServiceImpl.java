@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,16 +39,24 @@ public class ReimbursmentsServiceImpl implements ReimbursmentsService {
 	}
 
 	@Override
-	public DBReimbursments createReimbursments(HttpServletRequest req, HttpServletResponse resp) {
+	public void createReimbursments(HttpServletRequest req, HttpServletResponse resp) {
+		final String username = (String) req.getSession().getAttribute("currentUser");
+		final String reimbursmentType = (String) req.getParameter("reimbursmentType");
+		final float amount = Float.valueOf("amount"); 
+		final String reason = (String) req.getParameter("reason");
+		final int employeeId = Integer.valueOf("employeeId");
+		final String status = "Pending";
+		DBReimbursments DBReimbursments = dao.createReimbursments(new DBReimbursments(0, reimbursmentType, amount, reason, employeeId,0, status));
 		try {
-			DBReimbursments Reimbursments = mapper.readValue(req.getInputStream(), DBReimbursments.class);
-			return dao.createReimbursments(Reimbursments);
+			if(DBReimbursments == null) {
+				req.getRequestDispatcher("/createrequest.jsp?error").forward(req, resp);
 			}
-			catch (IOException e) {
-				System.out.println("Alex was right");
-				return null;
+			else {
+				req.getRequestDispatcher("/createrequest.jsp").forward(req, resp);
 			}
-		
+		}catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

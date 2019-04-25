@@ -11,6 +11,7 @@ public interface DBReimbursmentsDAO {
 	List<DBReimbursments> getAllReimbursments(String username);
 	DBReimbursments getReimbursmentsById(int userId);
 	DBReimbursments createReimbursments(DBReimbursments Reimbursments);
+	DBReimbursments createReimbursments(DBReimbursments Reimbursments, String username);
 	DBReimbursments updateReimbursments(DBReimbursments toBeUpdated);
 	long deleteReimbursments(DBReimbursments...toBeDeleted);
 	List<DBReimbursments> getAllReimbursmentsByEmployeeId(int employee_id);

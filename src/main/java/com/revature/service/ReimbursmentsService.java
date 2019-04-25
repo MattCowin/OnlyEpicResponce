@@ -13,6 +13,6 @@ public interface ReimbursmentsService {
 
 	List<DBReimbursments> getAllReimbursments(HttpServletRequest req, HttpServletResponse resp);
     DBReimbursments getReimbursmentsById(HttpServletRequest req, HttpServletResponse resp); 
-	DBReimbursments createReimbursments(HttpServletRequest req, HttpServletResponse resp);
+	void createReimbursments(HttpServletRequest req, HttpServletResponse resp);
 	DBReimbursments updateReimbursments(HttpServletRequest req, HttpServletResponse resp);
 }

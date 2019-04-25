@@ -1,42 +1,42 @@
 package com.revature.servlets;
 
 
+import java.io.IOException;
 import java.util.Collections;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.service.ReimbursmentsService;
 import com.revature.service.ReimbursmentsServiceImpl;
 
 public class AddToPage {
 
 		private static final ReimbursmentsService reimbursmentsService = new ReimbursmentsServiceImpl();
+		private static final ObjectMapper mapper = new ObjectMapper();
 		public AddToPage() {
 			
 		}
-		
-		public static Object process(HttpServletRequest req, HttpServletResponse resp) {
-			final String uri = req.getRequestURI().replace("/OnlyEpicRequest/ ", "");
-			System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
-			switch(uri) {
-			case "/GetRequests":{
-				System.out.println("John found it");
-				return reimbursmentsService.getAllReimbursments(req, resp);}
-			
-				
-			default:
-				return Collections.singletonMap("message", "Not yet implemented. Stuck at AddToPage process");
+
+			public static Object process(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, IOException {
+				System.out.println(request.getMethod() + "request going to " + request.getRequestURI());
+				if (request.getMethod().equalsIgnoreCase("POST")) {
+					if (request.getRequestURI().replace("/OnlyEpicRequest", "").equals("/login")) {
+						
+					}
+					if(request.getRequestURI().replace("/OnlyEpicRequest", "").equals("/InsertReimbursement")) {
+						response.setContentType("application/json");
+						//response.getOutputStream().write(mapper.writeValueAsBytes(reimbursmentsService.createReimbursments(request, response)));
+					}
+				}
+				if (request.getMethod().equalsIgnoreCase("GET")) {
+					if(request.getRequestURI().replace("/OnlyEpicRequest", "").equals("/MakeRequest")) {
+						response.setContentType("application/json");
+						response.getOutputStream().write(mapper.writeValueAsBytes(reimbursmentsService.getAllReimbursments(request, response)));
+					}
+				}
+				return "Not yet implemented";
 			}
-		}
-		
-		public static Object processPost(HttpServletRequest req, HttpServletResponse resp) {
-			final String uri = req.getRequestURI().replace("/OnlyEpicRequest/api", "");
-			System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
-			switch(uri) {
-			case "/PutRequest":
-				return reimbursmentsService.createReimbursments(req, resp);
-			default:
-				return Collections.singletonMap("message", "Not yet implemented. Stuck at AddToPage processPost");
-			}
-		}
 }

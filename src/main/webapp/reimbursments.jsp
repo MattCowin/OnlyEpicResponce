@@ -16,7 +16,7 @@
     <title>Employee Info</title>
     <meta name="author" content="Matt Cowin" />
 </head>
-<body>
+<body  onload="getAllReimbursements()">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
         <div class="navbar-header" style="margin: 0px; padding: 0px;">
@@ -52,9 +52,22 @@
 
     <div class="tinfo">
     	<button class="btn" id="fetch" onclick="fetch">Submit</button> 
-        
+        <table class='table' id='ReimbursementsTable'>
+        	<thead>
+        		<tr>
+        			<th>ID</th>
+        			<th>TYPE</th>
+        			<th>AMOUNT</th>
+        			<th>REASON</th>
+        			<th>SUBMITTED BY</th>
+        			<th>STATUS</th>
+        		</tr>
+        	</thead>
+        	<tbody id="reimbursementbody">
+        	</tbody>
+        </table>
     </div>
-    <script src="OnlyEpic.js"></script>
+    <script src="./Scripts/displayreimbursements.js"></script>
   
 </body>
 
