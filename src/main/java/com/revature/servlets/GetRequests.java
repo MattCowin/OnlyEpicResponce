@@ -31,14 +31,14 @@ public class GetRequests extends HttpServlet {
 	 * @throws IOException 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException  {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		resp.setContentType("text/html");
 		PrintWriter  pw = resp.getWriter();
 		System.out.println("gonna do it");
 	try(Connection conn = JDBCConnection.getDatarFromDB()){
 		System.out.println("hope I did it");
 		PreparedStatement ps = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS");
-		ResultSet rs = (ResultSet) ps.executeQuery();	
+		ResultSet rs = ps.executeQuery();	
 		System.out.println("almost there");
 		String str = "<table class='table' id='ReimbursementsTable'><thead><tr><th>ID</th><th>TYPE</th><th>AMOUNT</th><th>REASON</th><th>SUBMITTED BY</th><th>STATUS</th></tr></thead><tbody>";
 		System.out.println("attempting to populate a table");

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
+
 import com.revature.model.DBEmployees;
 import com.revature.servlets.JDBCConnection;
 
@@ -14,8 +16,6 @@ public class DisplayEmpInfo {
 	public static Object checkUser(){
      
      try{
-
-        Class.forName("oracle.jdbc.driver.OracleDriver");
         Connection conn = JDBCConnection.getDatarFromDB();
         PreparedStatement ps = conn.prepareStatement
                             ("select * from employees");
@@ -44,6 +44,8 @@ public class DisplayEmpInfo {
 		emp.setCountryCode(countryCode);
 		emp.setSalary(salary);
 		emp.setPositionId(positionId);
+		
+		
 //        ps.setInt(1, employeeId);
 //        ps.setString(2, firstName);
 //        ps.setString(3, lastName);
@@ -59,9 +61,6 @@ public class DisplayEmpInfo {
 //        st = rs.next();
        
      }
-     catch (ClassNotFoundException e) {
-			throw new RuntimeException("Failed to locate Database Driver");
-	 } 
      catch (SQLException e) {
 			throw new RuntimeException("Failed to get JDBC Connection");
 	 }

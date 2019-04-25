@@ -17,6 +17,8 @@ public class DBEmployees{
 	private String countryCode;
 	private int salary;
 	private int positionId;
+	private String username;
+	private String password;
 	
 	
 	
@@ -25,8 +27,11 @@ public class DBEmployees{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public DBEmployees(int employeetId, String firstName, String lastName, String email, int mobile, String address,
-			String city, String state, String countryCode, int salary, int positionId) {
+	
+
+	public DBEmployees(int employeeId, String firstName, String lastName, String email, int mobile, String address,
+			String city, String state, String countryCode, int salary, int positionId, String username,
+			String password) {
 		super();
 		this.employeeId = employeeId;
 		this.firstName = firstName;
@@ -39,8 +44,11 @@ public class DBEmployees{
 		this.countryCode = countryCode;
 		this.salary = salary;
 		this.positionId = positionId;
-		
+		this.username = username;
+		this.password = password;
 	}
+
+
 
 	public int getEmployeeId() {
 		return employeeId;
@@ -109,12 +117,30 @@ public class DBEmployees{
 		this.positionId = positionId;
 	}
 
-	@Override
-	public String toString() {
-		return "DBEmployees [employeetId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + ", mobile=" + mobile + ", address=" + address + ", city=" + city + ", state="
-				+ state + ", countryCode=" + countryCode + ", salary=" + salary + ", positionId=" + positionId + "]";
+
+
+	public String getUsername() {
+		return username;
 	}
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	
 
 	

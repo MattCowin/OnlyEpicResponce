@@ -16,7 +16,7 @@ public class Validate {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         Connection conn = JDBCConnection.getDatarFromDB();
         PreparedStatement ps = conn.prepareStatement
-                            ("select * from users where username=? and password=?");
+                            ("select * from employees where username=? and password=?");//Switched from having a user table. may kill login function
         ps.setString(1, username);
         ps.setString(2, password);
         ResultSet rs =ps.executeQuery();

@@ -57,7 +57,8 @@
         <form action="" class="empform">
         	
   			<h1><%=session.getAttribute("currentUser") %></h1>
-  			<p>${ employeeId}</p>
+  			<h1 name="firstName"></h1>
+  			<p><%=request.getAttribute("firstName")%></p>
   			
 			
   

@@ -54,7 +54,7 @@ public class Employees implements EmployeesDAO{
 	            while (rs.next()) {
 	                emps.add(new DBEmployees(rs.getInt("employee_id"), rs.getString("first_name"), rs.getString("last_name"),
 	                        rs.getString("email"), rs.getInt("mobile"), rs.getString("address"), rs.getString("city"), rs.getString("state"),
-	                        rs.getString("country_code"), rs.getInt("salary"), rs.getInt("position_id")));
+	                        rs.getString("country_code"), rs.getInt("salary"), rs.getInt("position_id"), rs.getInt("username"), rs.getInt("password");
 	            }
 	        } catch (SQLException e) {
 	            System.err.println(e);
