@@ -19,9 +19,9 @@ public class AddToPage {
 			final String uri = req.getRequestURI().replace("/OnlyEpicRequest/ ", "");
 			System.out.println("Inside AddToPage: " + req.getMethod() + " request going to " + uri);
 			switch(uri) {
-//			case "/GetRequests":{
-//				System.out.println("John found it");
-//				return reimbursmentsService.getAllReimbursments(req, resp);}
+			case "/GetRequests":{
+				System.out.println("John found it");
+				return reimbursmentsService.getAllReimbursments(req, resp);}
 			
 				
 			default:

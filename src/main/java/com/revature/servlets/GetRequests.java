@@ -36,6 +36,8 @@ public class GetRequests extends HttpServlet {
 		PrintWriter  pw = resp.getWriter();
 		System.out.println("gonna do it");
 	try(Connection conn = JDBCConnection.getDatarFromDB()){
+		
+		
 		System.out.println("hope I did it");
 		PreparedStatement ps = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS");
 		ResultSet rs = ps.executeQuery();	
@@ -48,12 +50,15 @@ public class GetRequests extends HttpServlet {
 		str += "</tbody></table>";
 		pw.println(str);
 		conn.close();
-		pw.close();
+		
 	}
 	catch(SQLException e) {
 		throw new RuntimeException("There was an issue with retrieving your data.");
 
 		}
+	finally{
+		pw.close();
+	}
 	}
 
 
