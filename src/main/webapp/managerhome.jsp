@@ -49,7 +49,8 @@
     </div>-->
         </nav>
         <form action="" class="empform">
-  			<h1><%=session.getAttribute("currentUser") %></h1>
+        	<h1>Managment Home</h1>
+  			<h2><%=session.getAttribute("currentUser") %></h2>
   			<h6>Address</h6>
   			
 

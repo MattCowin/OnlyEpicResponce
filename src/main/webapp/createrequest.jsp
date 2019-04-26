@@ -47,6 +47,7 @@
         </nav>
     </div>-->
     <form action="./InsertReimbursement" method="post" class="nrequest">
+    <h1>Create a New Reimbursement Request</h1>
     	<h6 id="Submitted"></h6>
           <select class="type" name="reimbursmentType">Please Select Type
             <option>travel</option>

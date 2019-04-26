@@ -23,7 +23,7 @@ public class Employees implements EmployeesDAO{
 			try {
 				Connection conn = JDBCConnection.getDatarFromDB();
 				Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-				ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLOYEES");
+				ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLOYEES WHERE USERNAME=?");
 				
 				while (rs.next()) {
 					StringBuffer buf = new StringBuffer();
@@ -38,6 +38,7 @@ public class Employees implements EmployeesDAO{
 					buf.append(rs.getInt("COUNTRY_CODE")+" ");
 					buf.append(rs.getInt("SALARY")+" ");
 					buf.append(rs.getInt("POSITION_ID")+" ");
+					buf.append(rs.getInt("USERNAME")+" ");
 					System.out.println(buf.toString()+" ");
 				}
 			} catch (SQLException e) {
@@ -106,9 +107,10 @@ public class Employees implements EmployeesDAO{
 		}
 		@Override
 		public Object getAllEmployees(String username) {
+			DBEmployees emp = new DBEmployees();
 			try {
 				Connection conn = JDBCConnection.getDatarFromDB();
-				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE USERNAME=?");
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE USERNAME=" + username);
 				ResultSet rs = stmt.executeQuery();
 				
 				
@@ -123,7 +125,7 @@ public class Employees implements EmployeesDAO{
 				String countryCode = rs.getString("COUNTRY_CODE");
 				Integer salary = rs.getInt("SALARY");
 				Integer positionId = rs.getInt("POSITION_ID");
-				DBEmployees emp = new DBEmployees();
+				
 				emp.setEmployeeId(employeeId);
 				emp.setFirstName(firstName);
 				emp.setLastName(lastName);
@@ -140,7 +142,7 @@ public class Employees implements EmployeesDAO{
 				System.err.println(e);
 				e.printStackTrace();
 			}
-			return "Didn't gather Info";
+			return emp;
 		}
 		
 		

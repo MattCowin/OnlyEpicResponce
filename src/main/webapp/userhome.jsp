@@ -55,9 +55,11 @@
         </nav>
      </div>-->
         <form action="./GetEmployeeInfo" class="empform">
-        	
-  			<h1><%=session.getAttribute("currentUser") %></h1>
-  			
+        	<h1>Welcome</h1>
+  			<h2><%=session.getAttribute("currentUser") %></h2>
+  			<table>
+  				
+  			</table>
   			
 			
   

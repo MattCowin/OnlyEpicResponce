@@ -24,6 +24,11 @@ h1{
 	font-size: 18px;
 }
 
+h2{
+    font-family: serif, sans-serif, monospace;
+    text-shadow: 2px 1px 4px rgb(128, 141, 163);
+}
+
 .emp{
     margin: auto;
     width: 80%;
@@ -86,4 +91,10 @@ h1{
     width: 60%;
     background-color: #d8d8d8232233234;
     text-align: center;
+}
+
+.ad{
+	margin: auto;
+	width:50%;
+	text-align: center;
 }

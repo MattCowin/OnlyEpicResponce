@@ -41,7 +41,8 @@
  
 
     <div class="tinfo">
-    	 <h1><%=session.getAttribute("currentUser") %></h1>
+    	<h1>Reimbursement Request</h1>
+    	 <h2><%=session.getAttribute("currentUser") %></h2>
         <table class='table' id='ReimbursementsTable'>
         	<thead>
         		<tr>

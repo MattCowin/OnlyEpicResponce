@@ -47,6 +47,7 @@
         </nav>
     </div>-->
     <form action="./UpdateEmpInfo" method="post" class="updaterequest">
+    		<h1>Edit Information</h1>
     		<h6 id="updated"></h6>
         <input type="text" placeholder="Email" name="Email"/><br/><Br>
         <input type="number" placeholder="MOBILE" name="MOBILE"/><br/><br>

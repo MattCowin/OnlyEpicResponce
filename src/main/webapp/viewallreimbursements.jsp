@@ -34,9 +34,19 @@
   </div>
 </nav>
     <br/>
+    	<div>
+    		<form class="ad" method="post" action="./UpdateReimbursementById" >
+    			<input type="text" placeholder="Enter Reimbursement ID" name="reID"><br/>
+    			Approve:<input type="radio" name="Approve">
+    			Deny:<input type="radio" name="Deny"><br/>
+    			<button class="btn btn-info" name="approve/deny">Submit Approval Status</button>
+    		</form>
+    	</div> 
        
         <div class="tinfo">
-    	<h1><%=session.getAttribute("currentUser") %></h1>
+        <h1>Pending Requests</h1>
+    	<h2><%=session.getAttribute("currentUser") %></h2>
+    	<form >  <!-- action="./UpdateReimbursementById" method="post" -->
         <table class='table' id='ReimbursementsTable'>
         	<thead>
         		<tr>
@@ -51,10 +61,11 @@
         	<tbody id="ReimbursementsTable">
         	</tbody>
         </table>
+        </form>
     </div>
     <script src="./Scripts/OnlyEpic.js"></script>
-    <script src="./Scripts/approved.js"></script>
-    <script src="./Scripts/deny.js"></script>
+    <!--  <script src="./Scripts/approved.js"></script>
+    <script src="./Scripts/deny.js"></script>-->
    
 </body>
 

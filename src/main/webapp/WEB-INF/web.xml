@@ -141,4 +141,24 @@
     <servlet-name>UpdateReimbursementById</servlet-name>
     <url-pattern>/UpdateReimbursementById</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApproveRequest</display-name>
+    <servlet-name>ApproveRequest</servlet-name>
+    <servlet-class>com.revature.servlets.ApproveRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApproveRequest</servlet-name>
+    <url-pattern>/ApproveRequest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DenyRequest</display-name>
+    <servlet-name>DenyRequest</servlet-name>
+    <servlet-class>com.revature.servlets.DenyRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DenyRequest</servlet-name>
+    <url-pattern>/DenyRequest</url-pattern>
+  </servlet-mapping>
 </web-app>

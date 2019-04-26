@@ -30,6 +30,10 @@ public class AddToPage {
 						response.setContentType("application/json");
 						//response.getOutputStream().write(mapper.writeValueAsBytes(reimbursmentsService.createReimbursments(request, response)));
 					}
+					if(request.getRequestURI().replace("/OnlyEpicRequest", "").equals("/UpdateReimbursementById")) {
+						response.setContentType("application/json");
+						//response.getOutputStream().write(mapper.writeValueAsBytes(reimbursmentsService.createReimbursments(request, response)));
+					}
 				}
 				if (request.getMethod().equalsIgnoreCase("GET")) {
 					if(request.getRequestURI().replace("/OnlyEpicRequest", "").equals("/MakeRequest")) {

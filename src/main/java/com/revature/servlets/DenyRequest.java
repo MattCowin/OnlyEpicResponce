@@ -11,29 +11,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.checks.MCheck;
-
 /**
- * Servlet implementation class UpdateReimbursementById
+ * Servlet implementation class DenyRequest
  */
-public class UpdateReimbursementById extends HttpServlet {
+public class DenyRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateReimbursementById() {
+    public DenyRequest() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.valueOf(request.getParameter("reID"));
 		PreparedStatement stmt = null;
 		try(Connection conn = JDBCConnection.getDatarFromDB()){
-		    stmt = conn.prepareStatement("UPDATE REIMBURSEMENTS SET STATUS =? WHERE REIMBURSEMENT_ID="+id);
-//		    stmt.setInt(1, Integer.valueOf(request.getParameter("id")));
-		    stmt.setString(1, "Approved");
+		    stmt = conn.prepareStatement("UPDATE REIMBURSEMENTS SET STATUS ='Denied' WHERE REIMBURSEMENT_ID=?");
+		    stmt.setInt(1, Integer.valueOf(request.getParameter("reimbursmentId")));
+		    stmt.setString(2, "Denied");
 			stmt.executeUpdate();
 			stmt.close();
 			conn.close();
@@ -45,10 +43,7 @@ public class UpdateReimbursementById extends HttpServlet {
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
-		RequestDispatcher dispatcher = getServletContext()
-    		      .getRequestDispatcher("/viewallreimbursements.jsp");
-    		    dispatcher.forward(request, response);
+		}
 	}
 
-}
+

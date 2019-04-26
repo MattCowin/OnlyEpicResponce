@@ -112,7 +112,8 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 			PreparedStatement stmt = null;
 			try(Connection conn = JDBCConnection.getDatarFromDB()){
 			    stmt = conn.prepareStatement("UPDATE REIMBURSEMENTS SET STATUS ='Approved' WHERE REIMBURSEMENT_ID=?");
-				stmt.setString(2, reimbursmentId.getStatus());
+				
+			    
 				stmt.executeUpdate();
 			}
 			catch(SQLException e) {
@@ -131,7 +132,7 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 		public List<DBReimbursments> getAllReimbursmentsByUser(String username) {
 			List<DBReimbursments> Reimbursments = new ArrayList<>();
 			try (Connection conn = JDBCConnection.getDatarFromDB()){
-				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS WHERE USERNAME=?  ORDER BY REIMBURSEMENT_ID");
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS WHERE USERNAME=" + username + "ORDER BY REIMBURSEMENT_ID");
 				stmt.setString(1, username);
 	            ResultSet rs = stmt.executeQuery();
 	            while (rs.next()) {
