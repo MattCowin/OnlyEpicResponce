@@ -26,7 +26,7 @@
             <li><a href="https://www.onlyepic.com/">About Us</a></li>
             <li><a href="./managerreimbursments.jsp">Reimbursements</a></li>
             <li class="active"><a href="./viewallreimbursements.jsp">View All Reimbursements</a></li>
-            <li><a href="./mcreaterequest.jsp">Create Request</a></li>
+            <li><a href="./createrequest.jsp">Create Request</a></li>
         </ul>
       <form method="get" action="./invalidateSession"><a  href="./index.html" style="float: right; padding-top: 15px; ">
           Log Out<span class="glyphicon glyphicon-user"></span>
@@ -34,18 +34,22 @@
   </div>
 </nav>
     <br/>
-    	<div>
-    		<form class="ad" method="post" action="./UpdateReimbursementById" >
-    			<input type="text" placeholder="Enter Reimbursement ID" name="reID"><br/>
-    			Approve:<input type="radio" name="Approve">
-    			Deny:<input type="radio" name="Deny"><br/>
-    			<button class="btn btn-info" name="approve/deny">Submit Approval Status</button>
-    		</form>
-    	</div> 
+    	
        
         <div class="tinfo">
         <h1>Pending Requests</h1>
     	<h2><%=session.getAttribute("currentUser") %></h2>
+    	<div>
+    		<form class="ad" method="post" action="./UpdateReimbursementById" >
+    			<input type="text" placeholder="Enter Reimbursement ID" name="reID"><br/>
+    			<select name="Status" >Please Select Approval Type
+    				<option value="Approved">Approve</option>
+    				<option value="Denied">Deny</option>
+    			</select><br/>
+    			
+    			<button class="btn btn-info" name="approve/deny">Submit Approval Status</button>
+    		</form>
+    	</div> 
     	<form >  <!-- action="./UpdateReimbursementById" method="post" -->
         <table class='table' id='ReimbursementsTable'>
         	<thead>

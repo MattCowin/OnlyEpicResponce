@@ -27,8 +27,9 @@ public class UpdateEmpInfo extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String user = request.getParameter("username");
 		try(Connection conn = JDBCConnection.getDatarFromDB()){
-			PreparedStatement stmt = conn.prepareStatement("UPDATE EMPLOYEES SET EMAIL=?, MOBILE=?, ADDRESS=?, CITY=?, STATE=?, COUNTRY_CODE=? WHERE EMAIL=?");
+			PreparedStatement stmt = conn.prepareStatement("UPDATE EMPLOYEES SET EMAIL=?, MOBILE=?, ADDRESS=?, CITY=?, STATE=?, COUNTRY_CODE=? WHERE USERNAME="+user);
 		
 			stmt.setString(1, request.getParameter("Email"));
 			stmt.setInt(2,  Integer.valueOf(request.getParameter("MOBILE")));

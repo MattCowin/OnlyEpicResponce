@@ -27,16 +27,16 @@ function populateReimbursementsTable(listOfDBReimbursments){
 		const tdSubmittedBy = document.createElement("td");
 		const tdStatus = document.createElement("td");
 		tdStatus.setAttribute("name", "status");
-		const approve = document.createElement("button");
-		const deny = document.createElement("button");
-		approve.innerHTML="APPROVE";
-		deny.innerHTML="DENY";
-		approve.setAttribute("class", "btn btn-success");
-		deny.setAttribute("class", "btn btn-danger");
-		approve.setAttribute("id", tdId);
-		deny.setAttribute("id", tdId);
-		approve.setAttribute("name", "Approve");
-		deny.setAttribute("name", "Deny");
+//		const approve = document.createElement("button");
+//		const deny = document.createElement("button");
+//		approve.innerHTML="APPROVE";
+//		deny.innerHTML="DENY";
+//		approve.setAttribute("class", "btn btn-success");
+//		deny.setAttribute("class", "btn btn-danger");
+//		approve.setAttribute("id", tdId);
+//		deny.setAttribute("id", tdId);
+//		approve.setAttribute("name", "Approve");
+//		deny.setAttribute("name", "Deny");
 //		approve.setAttribute("onclick", "approveReq()");
 //		deny.setAttribute("onclick", "denyReq()");
 //		const check = document.createElement("input");
@@ -60,8 +60,8 @@ function populateReimbursementsTable(listOfDBReimbursments){
 		row.appendChild(tdReason);
 		row.appendChild(tdSubmittedBy);
 		row.appendChild(tdStatus);
-		row.appendChild(approve);
-		row.appendChild(deny);
+//		row.appendChild(approve);
+//		row.appendChild(deny);
 		document.getElementById("ReimbursementsTable").appendChild(row);
 
 	}

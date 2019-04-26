@@ -33,7 +33,7 @@ public class UpdateReimbursementById extends HttpServlet {
 		try(Connection conn = JDBCConnection.getDatarFromDB()){
 		    stmt = conn.prepareStatement("UPDATE REIMBURSEMENTS SET STATUS =? WHERE REIMBURSEMENT_ID="+id);
 //		    stmt.setInt(1, Integer.valueOf(request.getParameter("id")));
-		    stmt.setString(1, "Approved");
+		    stmt.setString(1, request.getParameter("Status"));
 			stmt.executeUpdate();
 			stmt.close();
 			conn.close();

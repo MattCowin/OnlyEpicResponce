@@ -26,7 +26,7 @@
             <li><a href="https://www.onlyepic.com/">About Us</a></li>
             <li class="active"><a href="./managerreimbursments.jsp">Reimbursements</a></li>
             <li><a href="./viewallreimbursements.jsp">View All Reimbursements</a></li>
-            <li><a href="./mcreaterequest.jsp">Create Request</a></li>
+            <li><a href="./createrequest.jsp">Create Request</a></li>
         </ul>
       <form method="get" action="./invalidateSession"><a  href="./index.html" style="float: right; padding-top: 15px; ">
           Log Out<span class="glyphicon glyphicon-user"></span>

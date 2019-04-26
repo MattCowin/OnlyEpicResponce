@@ -26,7 +26,7 @@
             <li><a href="https://www.onlyepic.com/">About Us</a></li>
             <li><a href="./managerreimbursments.jsp">Reimbursements</a></li>
             <li><a href="./viewallreimbursements.jsp">View All Reimbursements</a></li>
-            <li><a href="./mcreaterequest.jsp">Create Request</a></li>
+            <li><a href="./createrequest.jsp">Create Request</a></li>
         </ul>
       <form method="get" action="./invalidateSession"><a  href="./index.html" style="float: right; padding-top: 15px; ">
           Log Out<span class="glyphicon glyphicon-user"></span>
@@ -49,9 +49,10 @@
     </div>-->
         </nav>
         <form action="" class="empform">
-        	<h1>Managment Home</h1>
+        	<h1>Management Home</h1>
   			<h2><%=session.getAttribute("currentUser") %></h2>
-  			<h6>Address</h6>
+  			
+  			
   			
 
   
