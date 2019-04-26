@@ -63,7 +63,7 @@
         			<th>STATUS</th>
         		</tr>
         	</thead>
-        	<tbody id="reimbursementbody">
+        	<tbody id="ReimbursementsTable">
         	</tbody>
         </table>
     </div>
