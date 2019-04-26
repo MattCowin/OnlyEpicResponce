@@ -3,17 +3,6 @@ window.onload = () => {
 	getAllReimbursements();
 }
 
-//const disInfo = (xhr) => {
-//	tableRows = xhr.responseText;
-//	let table = document.getElementById("ReimbursementsTable");
-//	table.removeChild(document.getElementById("reimbursementbody"));
-//	let newBody = document.createElement("tbody");
-//	newBody.setAttribute("id", "reimbursementbody");
-//	newBody.innerHTML = tableRows;
-//	table.appendChild(newBody);
-//	
-//}
-
 const getAllReimbursements = () => {
 	const xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = () =>{
@@ -33,14 +22,12 @@ for(let Reimbursments of listOfDBReimbursments){
 	const tdType = document.createElement("td");
 	const tdAmount = document.createElement("td");
 	const tdReason = document.createElement("td");
-	const tdSubmittedBy = document.createElement("td");
 	const tdStatus = document.createElement("td");
 	
 	tdId.textContent = Reimbursments.reimbursmentId;
 	tdType.textContent = Reimbursments.reimbursmentType;
 	tdAmount.textContent = Reimbursments.amount;
 	tdReason.textContent = Reimbursments.reason;
-	tdSubmittedBy.textContent = Reimbursments.employeeId;
 	tdStatus.textContent = Reimbursments.status;
 	
 	const row = document.createElement("tr");
@@ -48,7 +35,6 @@ for(let Reimbursments of listOfDBReimbursments){
 	row.appendChild(tdType);
 	row.appendChild(tdAmount);
 	row.appendChild(tdReason);
-	row.appendChild(tdSubmittedBy);
 	row.appendChild(tdStatus);
 	
 	document.getElementById("ReimbursementsTable").appendChild(row);

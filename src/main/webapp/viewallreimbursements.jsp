@@ -34,53 +34,26 @@
   </div>
 </nav>
     <br/>
-
-   <!--  <div class="emp" id="emp1">    
-        <nav class="navbar navbar">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav" style="text-align: center;">
-                <li><a href="./managerhome.jsp">Home</a></li>
-                <li><a href="./managerreimbursments.jsp">Reimbursements</a></li>
-                <li><a href="./viewallreimbursements.jsp">View All Reimbursements</a></li>
-                <li><a href="./mcreaterequest.jsp">Create Request</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div> -->
-    <div class="tinfo">
-    	<button></button>
-        <table class="table" id="AllReimbursementsTable">
-            <thead>
-                <tr>
-                    <th id="id">ID</th>
-                    <th id="type">TYPE</th>
-                    <th id="amount">AMOUNT</th>
-                    <th id="reason">REASON</th>
-                    <th id="sub">SUBMITTED BY
-                        <select>
-                            <option></option>
-                            <option>Pending</option>
-                            <option>Approved</option>
-                            <option>Denied</option>
-                        </select>
-                    </th>                
-                    <th id="app">APPROVED BY</th>
-                    <th id="status">STATUS
-                        <select>
-                            <option></option>
-                            <option>Pending</option>
-                            <option>Approved</option>
-                            <option>Denied</option>
-                        </select>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
+       
+        <div class="tinfo">
+    	<h1><%=session.getAttribute("currentUser") %></h1>
+        <table class='table' id='ReimbursementsTable'>
+        	<thead>
+        		<tr>
+        			<th>ID</th>
+        			<th>TYPE</th>
+        			<th>AMOUNT</th>
+        			<th>REASON</th>
+        			<th>SUBMITTED BY</th>
+        			<th>STATUS</th>
+        		</tr>
+        	</thead>
+        	<tbody id="ReimbursementsTable">
+        	</tbody>
         </table>
     </div>
     <script src="./Scripts/OnlyEpic.js"></script>
+   
 </body>
 
 </html>

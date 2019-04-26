@@ -38,29 +38,18 @@
 </nav>
     <br/>
 
-   <!-- <div class="emp" id="emp1">    
-        <nav class="navbar navbar">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav" style="text-align: center;">
-                <li><a href="./userhome.jsp">Home</a></li>
-                <li><a href="./reimbursments.jsp">Reimbursements</a></li>
-                <li><a href="./createrequest.jsp">Create Request</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div> --> 
+ 
 
     <div class="tinfo">
-    	<button class="btn" id="fetch" onclick="fetch">Submit</button> 
+    	 <h1><%=session.getAttribute("currentUser") %></h1>
         <table class='table' id='ReimbursementsTable'>
         	<thead>
         		<tr>
-        			<th>ID</th>
-        			<th>TYPE</th>
-        			<th>AMOUNT</th>
-        			<th>REASON</th>
-        			<th>SUBMITTED BY</th>
-        			<th>STATUS</th>
+        			<th style="text-align: center;">ID</th>
+        			<th style="text-align: center;">TYPE</th>
+        			<th style="text-align: center;">AMOUNT</th>
+        			<th style="text-align: center;">REASON</th>
+        			<th style="text-align: center;">STATUS</th>
         		</tr>
         	</thead>
         	<tbody id="ReimbursementsTable">
