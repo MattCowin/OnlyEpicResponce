@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
-    <title>Employee Info</title>
+    <title>View All Reimbursements</title>
     <meta name="author" content="Matt Cowin" />
 </head>
 <body>
@@ -40,12 +40,12 @@
         <table class='table' id='ReimbursementsTable'>
         	<thead>
         		<tr>
-        			<th>ID</th>
-        			<th>TYPE</th>
-        			<th>AMOUNT</th>
-        			<th>REASON</th>
-        			<th>SUBMITTED BY</th>
-        			<th>STATUS</th>
+        			<th style="text-align: center;">ID</th>
+        			<th style="text-align: center;">TYPE</th>
+        			<th style="text-align: center;">AMOUNT</th>
+        			<th style="text-align: center;">REASON</th>
+        			<th style="text-align: center;">SUBMITTED BY</th>
+        			<th style="text-align: center;">STATUS</th>
         		</tr>
         	</thead>
         	<tbody id="ReimbursementsTable">
@@ -53,6 +53,8 @@
         </table>
     </div>
     <script src="./Scripts/OnlyEpic.js"></script>
+    <script src="./Scripts/approved.js"></script>
+    <script src="./Scripts/deny.js"></script>
    
 </body>
 

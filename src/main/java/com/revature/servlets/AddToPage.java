@@ -37,6 +37,12 @@ public class AddToPage {
 						response.getOutputStream().write(mapper.writeValueAsBytes(reimbursmentsService.getAllReimbursments(request, response)));
 					}
 				}
+				if (request.getMethod().equalsIgnoreCase("GET")) {
+					if(request.getRequestURI().replace("/OnlyEpicRequest", "").equals("/GetEmployeeInfo")) {
+						response.setContentType("application/json");
+						response.getOutputStream().write(mapper.writeValueAsBytes(reimbursmentsService.getAllReimbursments(request, response)));
+					}
+				}
 				return "Not yet implemented";
 			}
 }

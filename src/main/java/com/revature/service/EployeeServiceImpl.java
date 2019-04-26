@@ -20,10 +20,8 @@ public class EployeeServiceImpl implements EmployeeService{
 	@Override
 	public Object getAllEmployees(HttpServletRequest request, HttpServletResponse response) {
 		final String username = (String) request.getSession().getAttribute("currentUser");
-		if(username == null) {
-			return dao.getAllEmployees();
-		}
-		return username;
+		
+		return dao.getAllEmployees(username);
 		
 	}
 

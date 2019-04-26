@@ -12,6 +12,7 @@ import com.revature.model.DBReimbursments;
 public interface ReimbursmentsService {
 
 	List<DBReimbursments> getAllReimbursments(HttpServletRequest req, HttpServletResponse resp);
+	List<DBReimbursments> getAllReimbursmentsByUser(HttpServletRequest req, HttpServletResponse resp);
     DBReimbursments getReimbursmentsById(HttpServletRequest req, HttpServletResponse resp); 
 	void createReimbursments(HttpServletRequest req, HttpServletResponse resp);
 	DBReimbursments updateReimbursments(HttpServletRequest req, HttpServletResponse resp);

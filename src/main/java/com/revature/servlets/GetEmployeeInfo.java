@@ -32,54 +32,12 @@ public class GetEmployeeInfo extends HttpServlet {
      
     }
  
-   
-	/**   
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html");
-		System.out.println("getting printwriter");
-		PrintWriter  pw = resp.getWriter();
-		RequestDispatcher dispatcher = req.getRequestDispatcher("userhome.jsp");
-		try (Connection conn = JDBCConnection.getDatarFromDB()){
-			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES");
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-            	int employeeId = rs.getInt("EMPLOYEE_ID");
-            	String firstName = rs.getString("FIRST_NAME");
-            	String lastName = rs.getString("LAST_NAME");
-            	String email = rs.getString("EMAIL");
-            	int mobile = rs.getInt("MOBILE");
-            	String address = rs.getString("ADDRESS");
-            	String city = rs.getString("CITY");
-            	String state = rs.getString("STATE");
-				String countryCode = rs.getString("COUNTRY_CODE");
-				int salary = rs.getInt("SALARY");
-				
-            	DBEmployees emp = new DBEmployees();
-            	emp.setEmployeeId(employeeId);
-            	emp.setFirstName(firstName);
-            	emp.setLastName(lastName);
-            	emp.setEmail(email);
-            	emp.setMobile(mobile);
-            	emp.setAddress(address);
-            	emp.setCity(city);
-            	emp.setState(state);
-            	emp.setCountryCode(countryCode);
-            	emp.setSalary(salary);
-            	
-            	dispatcher.forward( req, resp);
-            }
-		}
-            catch(SQLException e){
-            	throw new RuntimeException("There was an issue with retrieving your data.");
-            }
-				
-				
-				
-				
-		resp.setContentType("application/json");
-		resp.getOutputStream().write(mapper.writeValueAsBytes(AddToPage.process(req, resp)));
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		AddToPage.process(request, response);
+		response.setContentType("application/json");
+	}
 	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 }

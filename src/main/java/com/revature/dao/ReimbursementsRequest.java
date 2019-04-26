@@ -27,7 +27,7 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 		public List<DBReimbursments> getAllReimbursments(){
 			List<DBReimbursments> Reimbursments = new ArrayList<>();
 			try (Connection conn = JDBCConnection.getDatarFromDB()){
-				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS");
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS ORDER BY REIMBURSEMENT_ID");
 	            ResultSet rs = stmt.executeQuery();
 	            while (rs.next()) {
 	            	Reimbursments.add(new DBReimbursments(rs.getInt("REIMBURSEMENT_ID"), 
@@ -107,6 +107,19 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 			}
 			return updateReimbursments(toBeUpdated);
 		}
+		
+		public DBReimbursments updateReimbursmentById(DBReimbursments reimbursmentId) {
+			PreparedStatement stmt = null;
+			try(Connection conn = JDBCConnection.getDatarFromDB()){
+			    stmt = conn.prepareStatement("UPDATE REIMBURSEMENTS SET STATUS ='Approved' WHERE REIMBURSEMENT_ID=?");
+				stmt.setString(2, reimbursmentId.getStatus());
+				stmt.executeUpdate();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			return updateReimbursments(reimbursmentId);
+		}
 
 		@Override
 		public long deleteReimbursments(DBReimbursments... toBeDeleted) {
@@ -115,10 +128,10 @@ public class ReimbursementsRequest implements DBReimbursmentsDAO{
 		}
 
 		@Override
-		public List<DBReimbursments> getAllReimbursments(String username) {
+		public List<DBReimbursments> getAllReimbursmentsByUser(String username) {
 			List<DBReimbursments> Reimbursments = new ArrayList<>();
 			try (Connection conn = JDBCConnection.getDatarFromDB()){
-				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS WHERE EMPLOYEE_ID=?");
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM REIMBURSEMENTS WHERE USERNAME=?  ORDER BY REIMBURSEMENT_ID");
 				stmt.setString(1, username);
 	            ResultSet rs = stmt.executeQuery();
 	            while (rs.next()) {

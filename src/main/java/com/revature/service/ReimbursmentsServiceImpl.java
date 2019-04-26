@@ -59,4 +59,11 @@ public class ReimbursmentsServiceImpl implements ReimbursmentsService {
 		}
 	}
 
+	@Override
+	public List<DBReimbursments> getAllReimbursmentsByUser(HttpServletRequest req, HttpServletResponse resp) {
+		final String username = (String) req.getSession().getAttribute("currentUser");
+		
+		return dao.getAllReimbursmentsByUser(username);
+	}
+
 }

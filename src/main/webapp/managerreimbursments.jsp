@@ -41,12 +41,11 @@
         <table class='table' id='ReimbursementsTable'>
         	<thead>
         		<tr>
-        			<th>ID</th>
-        			<th>TYPE</th>
-        			<th>AMOUNT</th>
-        			<th>REASON</th>
-        			<th>SUBMITTED BY</th>
-        			<th>STATUS</th>
+        			<th style="text-align: center;">ID</th>
+        			<th style="text-align: center;">TYPE</th>
+        			<th style="text-align: center;">AMOUNT</th>
+        			<th style="text-align: center;">REASON</th>
+        			<th style="text-align: center;">STATUS</th>
         		</tr>
         	</thead>
         	<tbody id="ReimbursementsTable">

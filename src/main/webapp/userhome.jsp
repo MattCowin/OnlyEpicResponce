@@ -57,15 +57,14 @@
         <form action="./GetEmployeeInfo" class="empform">
         	
   			<h1><%=session.getAttribute("currentUser") %></h1>
-  			<h1 ><%=request.getAttribute("firstName") %></h1>
-  			<p><%=request.getAttribute("firstName")%></p>
+  			
   			
 			
   
 </form>
    
    
-   
+   <script src="./Scripts/empInfo.js"></script>
     
 </body>
 

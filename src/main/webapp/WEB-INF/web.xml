@@ -23,7 +23,6 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>JSession</display-name>
@@ -131,5 +130,15 @@
   <servlet-mapping>
     <servlet-name>PlaceEmployeeInfo</servlet-name>
     <url-pattern>/employeeinfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateReimbursementById</display-name>
+    <servlet-name>UpdateReimbursementById</servlet-name>
+    <servlet-class>com.revature.servlets.UpdateReimbursementById</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateReimbursementById</servlet-name>
+    <url-pattern>/UpdateReimbursementById</url-pattern>
   </servlet-mapping>
 </web-app>

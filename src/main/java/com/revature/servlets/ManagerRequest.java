@@ -48,7 +48,7 @@ public class ManagerRequest extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Entering MakeRequest.doPost");
 		resp.setContentType("application/json");
-		resp.getOutputStream().write(mapper.writeValueAsBytes(Reimbursement.createReimbursments(req, resp)));
+		//resp.getOutputStream().write(mapper.writeValueAsBytes(Reimbursement.createReimbursments(req, resp)));
 		System.out.println("Response sent successfully PutRequest from doPost!");
 		resp.sendRedirect("./managerhome.jsp");
 		final String reimbursmentType =req.getParameter("reimbursmentType");

@@ -135,11 +135,12 @@ public class Employees implements EmployeesDAO{
 				emp.setCountryCode(countryCode);
 				emp.setSalary(salary);
 				emp.setPositionId(positionId);
+				 return emp;
 			} catch (SQLException e) {
 				System.err.println(e);
 				e.printStackTrace();
 			}
-			 return null;
+			return "Didn't gather Info";
 		}
 		
 		
